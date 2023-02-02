@@ -5,7 +5,7 @@ const RoundButton = ({ style, title, singUpAuth }) => {
   const tailwind = useTailwind();
   return (
     <TouchableOpacity
-      onPress = { () => singUpAuth() }
+      onPress={() => singUpAuth()}
       style={[
         tailwind("flex justify-center items-center rounded-full p-4"),
         style,

@@ -4,16 +4,12 @@ import { useTailwind } from "tailwind-rn";
 import { IconInput } from "../components/inputs";
 import { RoundButton } from "../components/buttons";
 
-const SignUp = ({singUpAuth}) => {
-
+const SignUp = ({ singUpAuth }) => {
   //We are making this extra function here, in case we want
   //to add more functionality to the sign up process in this page.
   const authenticated = () => {
-
     singUpAuth();
-
-  }
-
+  };
 
   const tailwind = useTailwind();
   return (
@@ -48,7 +44,11 @@ const SignUp = ({singUpAuth}) => {
           />
         </View>
         <View>
-          <RoundButton style={tailwind("bg-green-500 mb-2")} singUpAuth = { () => authenticated() }   title="sign up" />
+          <RoundButton
+            style={tailwind("bg-green-500 mb-2")}
+            singUpAuth={() => authenticated()}
+            title="sign up"
+          />
           <View style={tailwind("flex flex-row justify-center")}>
             <Text style={tailwind("text-lg font-bold mb-4 mr-1")}>
               already have an account?
