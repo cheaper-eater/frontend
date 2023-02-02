@@ -1,16 +1,14 @@
 import { useState } from "react";
 import {
-  Image,
   View,
   Text,
   TouchableOpacity,
   FlatList,
   StyleSheet,
 } from "react-native";
-import { TextInput } from "react-native-web";
 import { useTailwind } from "tailwind-rn";
 
-const FoodTypes = ({closeFoodTypes}) => {
+const FoodTypes = ({ closeFoodTypes }) => {
   const [foodCategories] = useState([
     { key: "Asian", logo: "🍜" },
     { key: "Mexican", logo: "🌮" },
@@ -32,7 +30,7 @@ const FoodTypes = ({closeFoodTypes}) => {
   ]);
   const openCategory = (item) => {
     console.log(item);
-    closeFoodTypes()
+    closeFoodTypes();
   };
 
   const tailwind = useTailwind();
@@ -89,13 +87,11 @@ const FoodTypes = ({closeFoodTypes}) => {
 };
 const styles = StyleSheet.create({
   container: {
-  
-    width:"100%",
+    width: "100%",
     paddingTop: 22,
     alignContent: "flex-start",
     justifyContent: "flex-start",
     paddingBottom: 100,
-    
   },
   item: {
     fontSize: 20,
