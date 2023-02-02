@@ -12,7 +12,7 @@ import Index from "./screens/index";
 import FoodTypes from "./screens/foodTypes";
 
 export default function App() {
-  // const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated] = useState(false);
 
   // const auth = () => {
   //   console.log("Authenticated, redirecting to fooTypes");
