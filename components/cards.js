@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity, Platform } from "react-native";
 import { useTailwind } from "tailwind-rn";
 
 const ListViewCard = ({
@@ -13,7 +13,13 @@ const ListViewCard = ({
   const tailwind = useTailwind();
   return (
     <TouchableOpacity
-      style={[tailwind("bg-white rounded-xl min-h-[320px]"), style]}
+      style={[
+        tailwind("bg-white rounded-xl"),
+        style,
+        Platform.OS === "web"
+          ? tailwind("min-h-[320px]")
+          : tailwind("min-h-[400px]"),
+      ]}
     >
       <View
         style={tailwind(
@@ -43,8 +49,14 @@ const ListViewCard = ({
         // }
         >
           {props}
-          <Text>Delivery Fee: ${deliveryFee}</Text>
-          <Text>Delivery Time: {deliveryTime}</Text>
+          <Text>
+            Delivery Fee:
+            {deliveryFee == undefined ? " Not Available" : " $" + deliveryFee}
+          </Text>
+          <Text>
+            Delivery Time:{" "}
+            {deliveryTime == undefined ? "Not Available" : deliveryTime}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
