@@ -54,7 +54,7 @@ const ListView = ({ route }) => {
       </View>
       {searchResults.length != 0 ? (
         <FlatList
-          data={searchResults[0].stores}
+          data={searchResults}
           renderItem={({ item }) => {
             return (
               <View style={[tailwind("flex flex-1 ")]}>
@@ -63,7 +63,7 @@ const ListView = ({ route }) => {
                   title={item.title}
                   image={item.image}
                   deliveryFee={item.deliveryFee}
-                  deliveryTime={item.deliveryTime}
+                  deliveryTime={item.estimatedDeliveryTime}
                   rating={
                     item.rating === null
                       ? "No Ratings Found"

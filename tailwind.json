@@ -122,6 +122,11 @@
 			"minHeight": 320
 		}
 	},
+	"min-h-[400px]": {
+		"style": {
+			"minHeight": 400
+		}
+	},
 	"min-h-[300px]": {
 		"style": {
 			"minHeight": 300
