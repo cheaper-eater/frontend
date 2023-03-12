@@ -7,7 +7,7 @@ const Base = ({ children }) => {
     <SafeAreaView style={tailwind("flex flex-1 bg-gray-100")}>
       <View style={tailwind("flex flex-1 m-2")}>
         {children}
-        <StatusBar style="auto" />
+        <StatusBar style="auto" barStyle="dark-content" />
       </View>
     </SafeAreaView>
   );
