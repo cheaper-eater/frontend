@@ -1,3 +1,5 @@
+import { getLocalStorage, setLocalStorage } from "./localStorage";
+
 const API_DOMAIN = process.env.API_DOMAIN;
 const API_PORT = process.env.API_PORT;
 
@@ -22,13 +24,19 @@ const autocompleteLocation = async (addressInput) => {
  * @returns an Array of JSON containing autocomplete search results.
  */
 const autocompleteSearch = async (itemInput) => {
-  return await (
+  const cookies = await getLocalStorage("cookies");
+  const res = await (
     await fetch(`http://${API_DOMAIN}:${API_PORT}/api/autocomplete/search`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: itemInput }),
+      body: JSON.stringify({
+        cookies: cookies.cookies,
+        query: itemInput,
+      }),
     })
   ).json();
+  await setLocalStorage("cookies", { ...cookies, ...res.cookies });
+  return res.data;
 };
 
 export { autocompleteLocation, autocompleteSearch };
