@@ -42,6 +42,24 @@
 			"marginRight": 16
 		}
 	},
+	"my-2": {
+		"style": {
+			"marginTop": 8,
+			"marginBottom": 8
+		}
+	},
+	"my-1": {
+		"style": {
+			"marginTop": 4,
+			"marginBottom": 4
+		}
+	},
+	"my-4": {
+		"style": {
+			"marginTop": 16,
+			"marginBottom": 16
+		}
+	},
 	"mb-4": {
 		"style": {
 			"marginBottom": 16
@@ -70,6 +88,16 @@
 	"flex": {
 		"style": {
 			"display": "flex"
+		}
+	},
+	"grid": {
+		"style": {
+			"display": "grid"
+		}
+	},
+	"hidden": {
+		"style": {
+			"display": "none"
 		}
 	},
 	"h-[250px]": {
@@ -167,11 +195,41 @@
 			"width": "50%"
 		}
 	},
+	"w-24": {
+		"style": {
+			"width": 96
+		}
+	},
+	"w-60": {
+		"style": {
+			"width": 240
+		}
+	},
 	"flex-1": {
 		"style": {
 			"flexGrow": 1,
 			"flexShrink": 1,
 			"flexBasis": "0%"
+		}
+	},
+	"grid-flow-col": {
+		"style": {
+			"gridAutoFlow": "column"
+		}
+	},
+	"grid-cols-4": {
+		"style": {
+			"gridTemplateColumns": "repeat(4, minmax(0, 1fr))"
+		}
+	},
+	"grid-cols-2": {
+		"style": {
+			"gridTemplateColumns": "repeat(2, minmax(0, 1fr))"
+		}
+	},
+	"grid-rows-3": {
+		"style": {
+			"gridTemplateRows": "repeat(3, minmax(0, 1fr))"
 		}
 	},
 	"flex-row": {
@@ -194,6 +252,21 @@
 			"justifyContent": "space-between"
 		}
 	},
+	"gap-2": {
+		"style": {
+			"gap": 8
+		}
+	},
+	"self-end": {
+		"style": {
+			"alignSelf": "flex-end"
+		}
+	},
+	"justify-self-end": {
+		"style": {
+			"justifySelf": "end"
+		}
+	},
 	"rounded-full": {
 		"style": {
 			"borderTopLeftRadius": 9999,
@@ -208,6 +281,22 @@
 			"borderTopRightRadius": 12,
 			"borderBottomRightRadius": 12,
 			"borderBottomLeftRadius": 12
+		}
+	},
+	"rounded-md": {
+		"style": {
+			"borderTopLeftRadius": 6,
+			"borderTopRightRadius": 6,
+			"borderBottomRightRadius": 6,
+			"borderBottomLeftRadius": 6
+		}
+	},
+	"rounded-lg": {
+		"style": {
+			"borderTopLeftRadius": 8,
+			"borderTopRightRadius": 8,
+			"borderBottomRightRadius": 8,
+			"borderBottomLeftRadius": 8
 		}
 	},
 	"rounded-t-xl": {
@@ -237,6 +326,11 @@
 	"bg-black/40": {
 		"style": {
 			"backgroundColor": "rgb(0 0 0 / 0.4)"
+		}
+	},
+	"bg-none": {
+		"style": {
+			"backgroundImage": "none"
 		}
 	},
 	"object-cover": {
@@ -302,6 +396,18 @@
 			"lineHeight": 32
 		}
 	},
+	"text-sm": {
+		"style": {
+			"fontSize": 14,
+			"lineHeight": 20
+		}
+	},
+	"text-base": {
+		"style": {
+			"fontSize": 16,
+			"lineHeight": 24
+		}
+	},
 	"font-bold": {
 		"style": {
 			"fontWeight": "700"
@@ -336,9 +442,26 @@
 			"outlineOffset": 2
 		}
 	},
+	"filter": {
+		"style": {
+			"filter": "var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)"
+		}
+	},
 	"sm:w-1/2": {
 		"style": {
 			"width": "50%"
+		},
+		"media": "(min-width: 640px)"
+	},
+	"sm:w-full": {
+		"style": {
+			"width": "100%"
+		},
+		"media": "(min-width: 640px)"
+	},
+	"sm:grid-cols-2": {
+		"style": {
+			"gridTemplateColumns": "repeat(2, minmax(0, 1fr))"
 		},
 		"media": "(min-width: 640px)"
 	},
@@ -359,6 +482,60 @@
 			"width": "33.333333%"
 		},
 		"media": "(min-width: 768px)"
+	},
+	"md:w-1/2": {
+		"style": {
+			"width": "50%"
+		},
+		"media": "(min-width: 768px)"
+	},
+	"md:w-52": {
+		"style": {
+			"width": 208
+		},
+		"media": "(min-width: 768px)"
+	},
+	"md:grid-cols-2": {
+		"style": {
+			"gridTemplateColumns": "repeat(2, minmax(0, 1fr))"
+		},
+		"media": "(min-width: 768px)"
+	},
+	"lg:w-52": {
+		"style": {
+			"width": 208
+		},
+		"media": "(min-width: 1024px)"
+	},
+	"lg:grid-flow-col": {
+		"style": {
+			"gridAutoFlow": "column"
+		},
+		"media": "(min-width: 1024px)"
+	},
+	"lg:grid-cols-4": {
+		"style": {
+			"gridTemplateColumns": "repeat(4, minmax(0, 1fr))"
+		},
+		"media": "(min-width: 1024px)"
+	},
+	"lg:grid-cols-3": {
+		"style": {
+			"gridTemplateColumns": "repeat(3, minmax(0, 1fr))"
+		},
+		"media": "(min-width: 1024px)"
+	},
+	"lg:grid-cols-1": {
+		"style": {
+			"gridTemplateColumns": "repeat(1, minmax(0, 1fr))"
+		},
+		"media": "(min-width: 1024px)"
+	},
+	"lg:grid-rows-1": {
+		"style": {
+			"gridTemplateRows": "repeat(1, minmax(0, 1fr))"
+		},
+		"media": "(min-width: 1024px)"
 	},
 	"xl:w-1/5": {
 		"style": {
