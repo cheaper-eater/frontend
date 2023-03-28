@@ -2,6 +2,7 @@ import { Text, View, Image, FlatList, useWindowDimensions } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import { faker } from "@faker-js/faker";
 import { useContext, useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { ListViewCard } from "../components/cards";
 import PageContainer from "../components/pageContainer";
 import { getBreakPoint } from "../utils/screen";
@@ -9,6 +10,7 @@ import { search } from "../api/search";
 import { addressDetailsContext } from "../contexts/AddressContext";
 
 const ListView = ({ route }) => {
+  const navigation = useNavigation();
   const tailwind = useTailwind();
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 5 };
   const window = useWindowDimensions();
@@ -28,7 +30,7 @@ const ListView = ({ route }) => {
             <Text style={tailwind("text-3xl font-bold")}>
               Hello {faker.name.firstName()} 👋
             </Text>
-            <Text style={tailwind("text-lg font-light")}>
+            <Text style={tailwind("text-xl font-light")}>
               {"It's lunch time!"}
             </Text>
           </View>
@@ -69,6 +71,13 @@ const ListView = ({ route }) => {
                       ? "No Ratings Found"
                       : item.rating.toFixed(1)
                   }
+                  onPress={() => {
+                    navigation.navigate("Menu", {
+                      postmates: item.ids.postmates,
+                      grubhub: item.ids.grubhub,
+                      doordash: item.ids.doordash,
+                    });
+                  }}
                 />
               </View>
             );

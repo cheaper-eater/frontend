@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Index from "../screens/index";
 import ListView from "../screens/listView";
 import Base from "../screens/base";
+import MenuView from "../screens/menuView";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ const Pages = () => {
           screens: {
             Home: "",
             Search: "search",
+            Menu: "menu",
           },
         },
       }}
@@ -23,6 +25,7 @@ const Pages = () => {
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={Index} />
           <Stack.Screen name="Search" component={ListView} />
+          <Stack.Screen name="Menu" component={MenuView} />
         </Stack.Navigator>
       </Base>
     </NavigationContainer>

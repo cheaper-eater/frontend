@@ -20,4 +20,21 @@ const popularPicks = async () => {
   ).json();
 };
 
+// const popularPicks = async () => {
+//   const cookies = await getLocalStorage("cookies");
+//   const res = await (
+//     await fetch(`http://${API_DOMAIN}:${API_PORT}/api/search`, {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       credentials: "include",
+//       body: JSON.stringify({
+//         query: "",
+//         cookies: cookies.cookies,
+//       }),
+//     })
+//   ).json();
+//   await setLocalStorage("cookies", { ...cookies, ...res.cookies });
+//   return res.data;
+// };
+
 export { popularPicks };
