@@ -28,6 +28,7 @@ const Index = () => {
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 4 };
   const window = useWindowDimensions();
   const [visible, setVisible] = useState(false);
+  // const popularRestaurants = require("./test.json").data.slice(0, 20);
   const [popularRestaurants, setPopularRestaurants] = useState({ stores: [] });
 
   const [foodTypeScreen, showFoodTypeScreen] = useState(false);
@@ -52,17 +53,17 @@ const Index = () => {
 
   useEffect(() => {
     (async () => {
-      if (
-        address[0]?.address?.address1 &&
-        address[0]?.address?.address1 !== "Set Location"
-      ) {
-        setPopularRestaurants(await popularPicks());
-      }
+      // if (
+      //   address[0]?.address?.address1 &&
+      //   address[0]?.address?.address1 !== "Set Location"
+      // ) {
+      setPopularRestaurants(await popularPicks());
+      // }
     })();
   }, []);
 
   return (
-    <PageContainer style={tailwind("m-2")}>
+    <PageContainer>
       {/* Runs for the first time when the location hasn't been set by the cookies*/}
       {address[0]?.address?.address1 === "Set Location" ||
       !address[0]?.address?.address1 ? (
@@ -149,7 +150,7 @@ const Index = () => {
                   width:
                     Platform.OS === "web" ? window.width / 2 : window.width,
                 }}
-                onSubmitEditing={async (e) => {
+                onSubmitEditing={(e) => {
                   navigation.navigate("Search", {
                     searchStr: e.target.value,
                   });
@@ -177,12 +178,6 @@ const Index = () => {
                   <Text style={[tailwind("text-2xl font-bold")]}>
                     Main Course
                   </Text>
-
-                  <TouchableOpacity>
-                    <Text style={[tailwind("font-bold text-orange-500")]}>
-                      See All
-                    </Text>
-                  </TouchableOpacity>
                 </View>
                 <>
                   {popularRestaurants?.stores?.length != 0 ? (

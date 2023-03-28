@@ -9,6 +9,7 @@ import {
 import { useTailwind } from "tailwind-rn";
 import { faker } from "@faker-js/faker";
 import { useContext, useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { ListViewCard } from "../components/cards";
 import PageContainer from "../components/pageContainer";
 import { getBreakPoint } from "../utils/screen";
@@ -19,6 +20,7 @@ const orderByDescending = (a, b) => b - a;
 const orderByAscending = (a, b) => a - b;
 
 const ListView = ({ route }) => {
+  const navigation = useNavigation();
   const tailwind = useTailwind();
   const [filter, setFilter] = useState({
     desc: "distance: closest",
@@ -78,7 +80,7 @@ const ListView = ({ route }) => {
             <Text style={tailwind("text-3xl font-bold")}>
               Hello {faker.name.firstName()} 👋
             </Text>
-            <Text style={tailwind("text-lg font-light")}>
+            <Text style={tailwind("text-xl font-light")}>
               {"It's lunch time!"}
             </Text>
           </View>
@@ -157,6 +159,13 @@ const ListView = ({ route }) => {
                       ? "No Ratings Found"
                       : item.rating.toFixed(1)
                   }
+                  onPress={() => {
+                    navigation.navigate("Menu", {
+                      postmates: item.ids.postmates,
+                      grubhub: item.ids.grubhub,
+                      doordash: item.ids.doordash,
+                    });
+                  }}
                 />
               </View>
             );
