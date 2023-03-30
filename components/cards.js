@@ -258,7 +258,7 @@ const MenuCard = ({ title, image, style, desc, price }) => {
             </View>
             <Image
               source={
-                image === ""
+                image === "" || image == undefined
                   ? require("../assets/background/noImage.png")
                   : { uri: image }
               }
