@@ -150,9 +150,9 @@ const Index = () => {
                   width:
                     Platform.OS === "web" ? window.width / 2 : window.width,
                 }}
-                onSubmitEditing={(e) => {
+                onSubmitEditing={({ nativeEvent: { text } }) => {
                   navigation.navigate("Search", {
-                    searchStr: e.target.value,
+                    searchStr: text,
                   });
                 }}
               />
