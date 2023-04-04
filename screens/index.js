@@ -29,7 +29,7 @@ const Index = () => {
   const window = useWindowDimensions();
   const [visible, setVisible] = useState(false);
   // const popularRestaurants = require("./test.json").data.slice(0, 20);
-  const [popularRestaurants, setPopularRestaurants] = useState({ stores: [] });
+  const [popularRestaurants, setPopularRestaurants] = useState([]);
 
   const [foodTypeScreen, showFoodTypeScreen] = useState(false);
   const foodTypesRef = useRef(null);
@@ -180,9 +180,9 @@ const Index = () => {
                   </Text>
                 </View>
                 <>
-                  {popularRestaurants?.stores?.length != 0 ? (
+                  {popularRestaurants?.length != 0 ? (
                     <FlatList
-                      data={popularRestaurants.stores}
+                      data={popularRestaurants}
                       renderItem={({ item }) => {
                         return (
                           <View style={[tailwind("flex flex-1 ")]}>
@@ -196,7 +196,11 @@ const Index = () => {
                                   : item.rating.toFixed(1)
                               }
                               onPress={() => {
-                                console.log(item.title);
+                                navigation.navigate("Menu", {
+                                  postmates: item.ids.postmates,
+                                  grubhub: item.ids.grubhub,
+                                  doordash: item.ids.doordash,
+                                });
                               }}
                             />
                           </View>
