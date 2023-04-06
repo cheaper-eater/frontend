@@ -2,21 +2,18 @@ const API_DOMAIN = process.env.API_DOMAIN;
 const API_PORT = process.env.API_PORT;
 
 const passwordReset = async (emailId) => {
-  await fetch(
+  return await fetch(
     `http://${API_DOMAIN}:${API_PORT}/api/auth/requestPasswordReset`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: emailId }),
     }
-  )
-    .then((res) => res.json())
-    .then((json) => console.log(json))
-    .catch((err) => console.error("error:" + err));
+  );
 };
 
 const updatePassword = async (resetToken, newPassword, userId) => {
-  await fetch(
+  return await fetch(
     `http://${API_DOMAIN}:${API_PORT}/api/auth/resetAccountPassword`,
     {
       method: "POST",
@@ -27,10 +24,7 @@ const updatePassword = async (resetToken, newPassword, userId) => {
         userId: userId,
       }),
     }
-  )
-    .then((res) => res.json())
-    .then((json) => console.log(json))
-    .catch((err) => console.error("error:" + err));
+  );
 };
 
 const login = async (emailId, password) => {
