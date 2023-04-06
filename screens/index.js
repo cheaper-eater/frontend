@@ -28,36 +28,37 @@ const Index = () => {
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 4 };
   const window = useWindowDimensions();
   const [visible, setVisible] = useState(false);
-  const [popularRestaurants, setPopularRestaurants] = useState({ stores: [] });
+  // const popularRestaurants = require("./test.json").data.slice(0, 20);
+  const [popularRestaurants, setPopularRestaurants] = useState([]);
 
   const [foodTypeScreen, showFoodTypeScreen] = useState(false);
   const foodTypesRef = useRef(null);
   const searchBarRef = useRef(null);
   const address = useContext(addressDetailsContext);
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        foodTypesRef.current &&
-        !foodTypesRef.current.contains(event.target) &&
-        !searchBarRef.current.isFocused()
-      ) {
-        showFoodTypeScreen(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside, true);
-    return () => {
-      document.removeEventListener("click", handleClickOutside, true);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (
+  //       foodTypesRef.current &&
+  //       !foodTypesRef.current.contains(event.target) &&
+  //       !searchBarRef.current.isFocused()
+  //     ) {
+  //       showFoodTypeScreen(false);
+  //     }
+  //   };
+  //   document.addEventListener("click", handleClickOutside, true);
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutside, true);
+  //   };
+  // }, []);
 
   useEffect(() => {
     (async () => {
-      if (
-        address[0]?.address?.address1 &&
-        address[0]?.address?.address1 !== "Set Location"
-      ) {
-        setPopularRestaurants(await popularPicks());
-      }
+      // if (
+      //   address[0]?.address?.address1 &&
+      //   address[0]?.address?.address1 !== "Set Location"
+      // ) {
+      setPopularRestaurants(await popularPicks());
+      // }
     })();
   }, []);
 
@@ -84,138 +85,139 @@ const Index = () => {
           </ImageBackground>
         </>
       ) : (
-        <View style={tailwind("m-2")}>
-          <ModalView
-            visible={visible}
-            setVisible={setVisible}
-            setPopularRestaurants={setPopularRestaurants}
-          />
-
-          <View style={tailwind("flex flex-row justify-between")}>
-            <View>
-              <Text style={tailwind("text-2xl font-bold")}>
-                Give yourself a treat!🥘
-              </Text>
-            </View>
-            <Image
-              style={[tailwind("w-9 h-9"), { borderRadius: 20 }]}
-              resizeMode="contain"
-              source={{ uri: faker.image.avatar() }}
+        <>
+          <>
+            <ModalView
+              visible={visible}
+              setVisible={setVisible}
+              setPopularRestaurants={setPopularRestaurants}
             />
-          </View>
-          <View style={tailwind("flex flex-row")}>
-            <TouchableOpacity
-              // Shows up the modal for the location setup when clicked on the location button
-              onPress={() => setVisible(true)}
-              style={tailwind("flex-row")}
-            >
+            <View style={tailwind("flex flex-row justify-between")}>
+              <View>
+                <Text style={tailwind("text-2xl font-bold")}>
+                  Give yourself a treat!🥘
+                </Text>
+              </View>
               <Image
-                style={tailwind("w-4 h-4")}
+                style={[tailwind("w-9 h-9"), { borderRadius: 20 }]}
                 resizeMode="contain"
-                source={require("../assets/icons/black/location.png")}
+                source={{ uri: faker.image.avatar() }}
               />
-              <Text style={tailwind("font-light ml-2")}>
-                {/* {address?.address?.address1} */}
-                {address[0].address.address1}
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={tailwind("flex flex-row items-center")}>
-            {!foodTypeScreen ? (
-              <Image
-                style={tailwind("w-5 h-5")}
-                resizeMode="contain"
-                source={require("../assets/icons/black/search.png")}
-              />
-            ) : (
-              <TouchableOpacity onPress={() => showFoodTypeScreen(false)}>
+            </View>
+            <View style={tailwind("flex flex-row")}>
+              <TouchableOpacity
+                // Shows up the modal for the location setup when clicked on the location button
+                onPress={() => setVisible(true)}
+                style={tailwind("flex-row")}
+              >
+                <Image
+                  style={tailwind("w-4 h-4")}
+                  resizeMode="contain"
+                  source={require("../assets/icons/black/location.png")}
+                />
+                <Text style={tailwind("font-light ml-2")}>
+                  {/* {address?.address?.address1} */}
+                  {address[0].address.address1}
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={tailwind("flex flex-row items-center")}>
+              {!foodTypeScreen ? (
                 <Image
                   style={tailwind("w-5 h-5")}
                   resizeMode="contain"
-                  source={require("../assets/icons/black/back.png")}
-                />
-              </TouchableOpacity>
-            )}
-
-            <TextInput
-              ref={searchBarRef}
-              placeholder="What would you like to eat?"
-              onFocus={() => showFoodTypeScreen(true)}
-              style={{
-                height: 40,
-                margin: 12,
-                borderLeftWidth: 1,
-                padding: 10,
-                width: Platform.OS === "web" ? window.width / 2 : window.width,
-              }}
-              onSubmitEditing={async (e) => {
-                navigation.navigate("Search", {
-                  searchStr: e.target.value,
-                });
-              }}
-            />
-          </View>
-
-          {foodTypeScreen ? (
-            <View ref={foodTypesRef}>
-              <FoodTypes closeFoodTypes={() => showFoodTypeScreen(false)} />
-            </View>
-          ) : (
-            <View style={tailwind("flex")}>
-              <View
-                style={[
-                  tailwind("flex flex-row justify-between"),
-                  {
-                    alignItems: "center",
-                    alignContent: "center",
-                    paddingBottom: 15,
-                  },
-                ]}
-              >
-                <Text style={[tailwind("text-2xl font-bold")]}>
-                  Main Course
-                </Text>
-
-                <TouchableOpacity>
-                  <Text style={[tailwind("font-bold text-orange-500")]}>
-                    See All
-                  </Text>
-                </TouchableOpacity>
-              </View>
-              {/* Shows the popular restaurants in the area when the location is selected */}
-              {popularRestaurants?.stores?.length != 0 ? (
-                <FlatList
-                  data={popularRestaurants.stores}
-                  renderItem={({ item }) => {
-                    return (
-                      <View style={[tailwind("flex flex-1 ")]}>
-                        <RestaurantCard
-                          style={tailwind("m-2")}
-                          title={item.title}
-                          image={item.image}
-                          rating={
-                            item.rating === null
-                              ? "No Ratings Found"
-                              : item.rating.toFixed(1)
-                          }
-                          onPress={() => {
-                            console.log(item.title);
-                          }}
-                        />
-                      </View>
-                    );
-                  }}
-                  key={getBreakPoint(window.width)}
-                  numColumns={numColumns[getBreakPoint(window.width)]}
-                  keyExtractor={(item) => item.id}
+                  source={require("../assets/icons/black/search.png")}
                 />
               ) : (
-                <></>
+                <TouchableOpacity onPress={() => showFoodTypeScreen(false)}>
+                  <Image
+                    style={tailwind("w-5 h-5")}
+                    resizeMode="contain"
+                    source={require("../assets/icons/black/back.png")}
+                  />
+                </TouchableOpacity>
               )}
+
+              <TextInput
+                ref={searchBarRef}
+                placeholder="What would you like to eat?"
+                onFocus={() => showFoodTypeScreen(true)}
+                style={{
+                  height: 40,
+                  margin: 12,
+                  borderLeftWidth: 1,
+                  padding: 10,
+                  width:
+                    Platform.OS === "web" ? window.width / 2 : window.width,
+                }}
+                onSubmitEditing={({ nativeEvent: { text } }) => {
+                  navigation.navigate("Search", {
+                    searchStr: text,
+                  });
+                }}
+              />
             </View>
-          )}
-        </View>
+          </>
+          <>
+            {foodTypeScreen ? (
+              <View ref={foodTypesRef}>
+                <FoodTypes closeFoodTypes={() => showFoodTypeScreen(false)} />
+              </View>
+            ) : (
+              <>
+                <View
+                  style={[
+                    tailwind("flex flex-row justify-between"),
+                    {
+                      alignItems: "center",
+                      alignContent: "center",
+                      paddingBottom: 15,
+                    },
+                  ]}
+                >
+                  <Text style={[tailwind("text-2xl font-bold")]}>
+                    Main Course
+                  </Text>
+                </View>
+                <>
+                  {popularRestaurants?.length != 0 ? (
+                    <FlatList
+                      data={popularRestaurants}
+                      renderItem={({ item }) => {
+                        return (
+                          <View style={[tailwind("flex flex-1 ")]}>
+                            <RestaurantCard
+                              style={tailwind("m-2")}
+                              title={item.title}
+                              image={item.image}
+                              rating={
+                                item.rating === null
+                                  ? "No Ratings Found"
+                                  : item.rating.toFixed(1)
+                              }
+                              onPress={() => {
+                                navigation.navigate("Menu", {
+                                  postmates: item.ids.postmates,
+                                  grubhub: item.ids.grubhub,
+                                  doordash: item.ids.doordash,
+                                });
+                              }}
+                            />
+                          </View>
+                        );
+                      }}
+                      key={getBreakPoint(window.width)}
+                      numColumns={numColumns[getBreakPoint(window.width)]}
+                      keyExtractor={(item) => item.id}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                </>
+              </>
+            )}
+          </>
+        </>
       )}
     </PageContainer>
   );

@@ -7,6 +7,7 @@ import Base from "../screens/base";
 import VerifyAccountEmail from "../screens/verifyAccountEmail";
 import SignUp from "../screens/signUp";
 import CreateNewPassword from "../screens/createNewPassword";
+import MenuView from "../screens/menuView";
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const Pages = () => {
             SignUp: "signUp",
             VerifyAccountEmail: "verifyAccountEmail",
             CreateNewPassword: "passwordReset",
+            Menu: "menu",
           },
         },
       }}
@@ -38,6 +40,7 @@ const Pages = () => {
             component={CreateNewPassword}
           />
           <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="Menu" component={MenuView} />
         </Stack.Navigator>
       </Base>
     </NavigationContainer>

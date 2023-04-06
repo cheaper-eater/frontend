@@ -104,12 +104,12 @@ const ModalView = ({ visible, setVisible, setPopularRestaurants }) => {
                 // All the fetch calls for getting the selected address details and then stting up the cookies and fetching popular restaurants
                 onPress={async () => {
                   const detailData = await detailLocation(addressArray[index]);
+                  await setLocation(detailData);
                   address[1](detailData);
                   await setLocalStorage("address", detailData);
-                  await setLocation(detailData);
                   const results = await popularPicks();
-                  setVisible(false);
                   setPopularRestaurants(results);
+                  setVisible(false);
                 }}
               >
                 <View
