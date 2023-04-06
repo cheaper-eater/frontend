@@ -3,21 +3,11 @@ import { useTailwind } from "tailwind-rn";
 import { useRef } from "react";
 import { IconInput } from "../components/inputs";
 import { RoundButton } from "../components/buttons";
+import { passwordReset } from "../api/auth";
 
 const AccountRecovery = () => {
   const tailwind = useTailwind();
   const email = useRef("");
-
-  const passwordReset = async () => {
-    await fetch("http://localhost:8000/api/auth/requestPasswordReset", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email.current.value }),
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
-      .catch((err) => console.error("error:" + err));
-  };
 
   return (
     <View style={tailwind("flex flex-1 sm:items-center")}>
@@ -44,7 +34,7 @@ const AccountRecovery = () => {
           <RoundButton
             style={tailwind("bg-green-500 mb-2")}
             title="Send a request"
-            onPress={passwordReset}
+            onPress={passwordReset(email.current.value)}
           />
           <View style={tailwind("flex flex-row justify-center")}>
             <Text style={tailwind("text-lg font-bold mb-4 mr-1")}>

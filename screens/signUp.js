@@ -3,6 +3,7 @@ import { Image, View, Text, TouchableOpacity } from "react-native";
 import { useTailwind } from "tailwind-rn";
 
 import { IconInput } from "../components/inputs";
+import { signUp } from "../api/auth";
 
 const SignUp = () => {
   const tailwind = useTailwind();
@@ -45,17 +46,13 @@ const SignUp = () => {
         </View>
         <View>
           <TouchableOpacity
-            onPress={() => {
-              fetch("http://localhost:8000/api/auth/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  username: name.current.value,
-                  email: email.current.value,
-                  password: password.current.value,
-                }),
-              });
-            }}
+            onPress={() =>
+              signUp(
+                name.current.value,
+                email.current.value,
+                password.current.value
+              )
+            }
             style={[
               tailwind(
                 "bg-green-500 mb-2 flex justify-center items-center rounded-full p-4"

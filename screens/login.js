@@ -3,6 +3,7 @@ import { useTailwind } from "tailwind-rn";
 import { useRef } from "react";
 import { IconInput } from "../components/inputs";
 import { RoundButton } from "../components/buttons";
+import { login } from "../api/auth";
 
 const Login = () => {
   const tailwind = useTailwind();
@@ -48,19 +49,7 @@ const Login = () => {
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => {
-              fetch("http://localhost:8000/api/auth/login", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  email: "email@domain.com",
-                  password: "password",
-                }),
-              })
-                .then((res) => res.json())
-                .then((json) => console.log(json))
-                .catch((err) => console.error("error:" + err));
-            }}
+            onPress={() => login("email@domian.com", "password")}
           >
             <RoundButton style={tailwind("bg-green-500 mb-2")} title="Login" />
           </TouchableOpacity>

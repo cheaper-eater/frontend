@@ -2,24 +2,11 @@ import { Image, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import { IconInput } from "../components/inputs";
 import { RoundButton } from "../components/buttons";
+import { updatePassword } from "../api/auth";
 
 const CreateNewPassword = ({ route }) => {
   const tailwind = useTailwind();
 
-  const updatePassword = async () => {
-    await fetch("http://localhost:8000/api/auth/resetAccountPassword", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        passwordResetToken: route.params.token,
-        newPassword: "newPassword",
-        userId: route.params.id,
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json))
-      .catch((err) => console.error("error:" + err));
-  };
   return (
     <View style={tailwind("flex flex-1 sm:items-center")}>
       <View
@@ -52,7 +39,11 @@ const CreateNewPassword = ({ route }) => {
           <RoundButton
             style={tailwind("bg-green-500 mb-2")}
             title="Update your password"
-            onPress={updatePassword}
+            onPress={updatePassword(
+              route.params.token,
+              "newPassword",
+              route.params.id
+            )}
           />
         </View>
       </View>

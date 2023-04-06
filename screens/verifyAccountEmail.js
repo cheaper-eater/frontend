@@ -1,26 +1,21 @@
 import { useEffect, useState } from "react";
 import { Image, View, Text, TouchableOpacity } from "react-native";
 import { useTailwind } from "tailwind-rn";
+import { resendVerificationEmail, verifyAccountEmail } from "../api/auth";
 
 const VerifyAccountEmail = ({ route }) => {
   const tailwind = useTailwind();
   const [verification, setVerification] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/auth/verifyAccountEmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        verifyAccountEmailToken: route.params.token,
-        userId: route.params.id,
-      }),
-    }).then(async (res) => {
+    (async () => {
+      const res = await verifyAccountEmail(route.params.token, route.params.id);
       if (!res.ok) {
         if ((await res.json()).error == "invalid token") {
           setVerification(false);
         } else setVerification(true);
       }
-    });
+    })();
   }, []);
 
   return (
@@ -49,19 +44,7 @@ const VerifyAccountEmail = ({ route }) => {
             ]}
             onPress={() => {
               if (!verification) {
-                fetch(
-                  "http://localhost:8000/api/auth/resendVerificationEmail",
-                  {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                      userId: route.params.id,
-                    }),
-                  }
-                )
-                  .then((response) => response.json())
-                  .then((response) => console.log(response))
-                  .catch((err) => console.error(err));
+                resendVerificationEmail(route.params.id);
               }
             }}
           >
