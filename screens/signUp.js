@@ -46,23 +46,15 @@ const SignUp = () => {
         <View>
           <TouchableOpacity
             onPress={() => {
-              const options = {
+              fetch("http://localhost:8000/api/auth/register", {
                 method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                  data: {
-                    name: name.current.value,
-                    email: email.current.value,
-                    password: password.current.value,
-                  },
+                  username: name.current.value,
+                  email: email.current.value,
+                  password: password.current.value,
                 }),
-              };
-
-              fetch("http://localhost:8000/api/auth/signup", options)
-                .then((res) => res.json())
-                .catch((err) => console.error(err));
+              });
             }}
             style={[
               tailwind(
@@ -87,6 +79,30 @@ const SignUp = () => {
                 login!
               </Text>
             </TouchableOpacity>
+          </View>
+          <View style={tailwind("flex-row")}>
+            <a href="https://mail.google.com" target="_blank" rel="noreferrer">
+              <TouchableOpacity>
+                <Image
+                  style={tailwind("w-10 h-10")}
+                  resizeMode="contain"
+                  source={require("../assets/icons/socialmedia/google.png")}
+                />
+              </TouchableOpacity>
+            </a>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <TouchableOpacity>
+                <Image
+                  style={tailwind("w-10 h-10")}
+                  resizeMode="contain"
+                  source={require("../assets/icons/socialmedia/facebook.png")}
+                />
+              </TouchableOpacity>
+            </a>
           </View>
         </View>
       </View>

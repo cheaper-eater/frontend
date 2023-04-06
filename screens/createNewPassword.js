@@ -1,24 +1,25 @@
-import { Image, View, Text, TouchableOpacity } from "react-native";
+import { Image, View } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import { useRef } from "react";
 import { IconInput } from "../components/inputs";
 import { RoundButton } from "../components/buttons";
 
-const AccountRecovery = () => {
+const CreateNewPassword = ({ route }) => {
   const tailwind = useTailwind();
-  const email = useRef("");
 
-  const passwordReset = async () => {
-    await fetch("http://localhost:8000/api/auth/requestPasswordReset", {
+  const updatePassword = async () => {
+    await fetch("http://localhost:8000/api/auth/resetAccountPassword", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email.current.value }),
+      body: JSON.stringify({
+        passwordResetToken: route.params.token,
+        newPassword: "newPassword",
+        userId: route.params.id,
+      }),
     })
       .then((res) => res.json())
       .then((json) => console.log(json))
       .catch((err) => console.error("error:" + err));
   };
-
   return (
     <View style={tailwind("flex flex-1 sm:items-center")}>
       <View
@@ -34,35 +35,29 @@ const AccountRecovery = () => {
           />
           <IconInput
             style={tailwind("mb-4")}
-            placeholder="Email"
-            icon={require("../assets/icons/black/at.png")}
-            keyboardType="email-address"
-            ref={email}
+            placeholder="New Password"
+            icon={require("../assets/icons/black/key.png")}
+            keyboardType="password"
+            secureTextEntry={true}
+          />
+          <IconInput
+            style={tailwind("mb-4")}
+            placeholder="Verify New Password"
+            icon={require("../assets/icons/black/key.png")}
+            keyboardType="password"
+            secureTextEntry={true}
           />
         </View>
         <View>
           <RoundButton
             style={tailwind("bg-green-500 mb-2")}
-            title="Send a request"
-            onPress={passwordReset}
+            title="Update your password"
+            onPress={updatePassword}
           />
-          <View style={tailwind("flex flex-row justify-center")}>
-            <Text style={tailwind("text-lg font-bold mb-4 mr-1")}>
-              already have an account?
-            </Text>
-
-            <TouchableOpacity>
-              <Text
-                style={tailwind("text-xl text-lg font-bold text-green-500")}
-              >
-                login!
-              </Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </View>
     </View>
   );
 };
 
-export default AccountRecovery;
+export default CreateNewPassword;
