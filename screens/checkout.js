@@ -85,7 +85,7 @@ const Checkout = () => {
    * @return {Boolean} value indicating if platform is mobile
    */
   const isMobile = () => {
-    return !(Platform.OS != "android" && Platform.OS != "ios");
+    return Platform.OS === "android" || Platform.OS === "ios";
   };
 
   /*Checking to see if screen size is large or smaller
