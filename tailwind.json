@@ -4,6 +4,7 @@
 			"visibility": "visible"
 		}
 	},
+<<<<<<< HEAD
 	"static": {
 		"style": {
 			"position": "static"
@@ -14,11 +15,14 @@
 			"position": "fixed"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"absolute": {
 		"style": {
 			"position": "absolute"
 		}
 	},
+<<<<<<< HEAD
 	"relative": {
 		"style": {
 			"position": "relative"
@@ -29,6 +33,8 @@
 			"top": 0
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"z-10": {
 		"style": {
 			"zIndex": 10
@@ -76,6 +82,7 @@
 			"marginRight": 16
 		}
 	},
+<<<<<<< HEAD
 	"my-2": {
 		"style": {
 			"marginTop": 8,
@@ -88,6 +95,8 @@
 			"marginRight": 8
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"mb-4": {
 		"style": {
 			"marginBottom": 16
@@ -113,6 +122,7 @@
 			"marginLeft": 8
 		}
 	},
+<<<<<<< HEAD
 	"mr-2": {
 		"style": {
 			"marginRight": 8
@@ -153,6 +163,8 @@
 			"marginTop": 112
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -168,16 +180,37 @@
 			"display": "none"
 		}
 	},
+<<<<<<< HEAD
 	"aspect-square": {
 		"style": {
 			"aspectRatio": "1 / 1"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"h-[250px]": {
 		"style": {
 			"height": 250
 		}
 	},
+<<<<<<< HEAD
+=======
+	"h-[150px]": {
+		"style": {
+			"height": 150
+		}
+	},
+	"h-8": {
+		"style": {
+			"height": 32
+		}
+	},
+	"h-10": {
+		"style": {
+			"height": 40
+		}
+	},
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"h-9": {
 		"style": {
 			"height": 36
@@ -193,11 +226,14 @@
 			"height": 20
 		}
 	},
+<<<<<<< HEAD
 	"h-10": {
 		"style": {
 			"height": 40
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"h-[200px]": {
 		"style": {
 			"height": 200
@@ -208,6 +244,7 @@
 			"height": "100%"
 		}
 	},
+<<<<<<< HEAD
 	"h-screen": {
 		"style": {
 			"height": "100vh"
@@ -233,6 +270,8 @@
 			"height": "95vh"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"min-h-[320px]": {
 		"style": {
 			"minHeight": 320
@@ -258,9 +297,20 @@
 			"width": "100%"
 		}
 	},
+<<<<<<< HEAD
 	"w-1/3": {
 		"style": {
 			"width": "33.333333%"
+=======
+	"w-8": {
+		"style": {
+			"width": 32
+		}
+	},
+	"w-10": {
+		"style": {
+			"width": 40
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 		}
 	},
 	"w-9": {
@@ -283,6 +333,7 @@
 			"width": "50%"
 		}
 	},
+<<<<<<< HEAD
 	"w-10": {
 		"style": {
 			"width": 40
@@ -313,6 +364,8 @@
 			"width": 96
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"flex-1": {
 		"style": {
 			"flexGrow": 1,
@@ -338,6 +391,7 @@
 			"flexDirection": "column"
 		}
 	},
+<<<<<<< HEAD
 	"place-content-center": {
 		"style": {
 			"alignContent": "center",
@@ -359,16 +413,21 @@
 			"alignItems": "flex-end"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"items-center": {
 		"style": {
 			"alignItems": "center"
 		}
 	},
+<<<<<<< HEAD
 	"justify-end": {
 		"style": {
 			"justifyContent": "flex-end"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"justify-center": {
 		"style": {
 			"justifyContent": "center"
@@ -384,6 +443,7 @@
 			"gap": 8
 		}
 	},
+<<<<<<< HEAD
 	"gap-1": {
 		"style": {
 			"gap": 4
@@ -406,11 +466,14 @@
 			"alignSelf": "flex-start"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"self-end": {
 		"style": {
 			"alignSelf": "flex-end"
 		}
 	},
+<<<<<<< HEAD
 	"justify-self-start": {
 		"style": {
 			"justifySelf": "start"
@@ -421,6 +484,8 @@
 			"justifySelf": "end"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"rounded-xl": {
 		"style": {
 			"borderTopLeftRadius": 12,
@@ -451,12 +516,15 @@
 			"borderTopRightRadius": 12
 		}
 	},
+<<<<<<< HEAD
 	"rounded-b-xl": {
 		"style": {
 			"borderBottomRightRadius": 12,
 			"borderBottomLeftRadius": 12
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"bg-green-500": {
 		"style": {
 			"--tw-bg-opacity": 1,
@@ -469,12 +537,15 @@
 			"backgroundColor": "rgb(243 244 246 / var(--tw-bg-opacity))"
 		}
 	},
+<<<<<<< HEAD
 	"bg-black": {
 		"style": {
 			"--tw-bg-opacity": 1,
 			"backgroundColor": "rgb(0 0 0 / var(--tw-bg-opacity))"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"bg-white": {
 		"style": {
 			"--tw-bg-opacity": 1,
@@ -486,6 +557,7 @@
 			"backgroundColor": "rgb(0 0 0 / 0.4)"
 		}
 	},
+<<<<<<< HEAD
 	"bg-slate-100": {
 		"style": {
 			"--tw-bg-opacity": 1,
@@ -559,6 +631,8 @@
 			"backgroundColor": "rgb(255 255 255 / 0.95)"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"bg-none": {
 		"style": {
 			"backgroundImage": "none"
@@ -593,6 +667,7 @@
 			"paddingLeft": 10
 		}
 	},
+<<<<<<< HEAD
 	"p-10": {
 		"style": {
 			"paddingTop": 40,
@@ -609,11 +684,14 @@
 			"paddingLeft": 4
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"pt-2": {
 		"style": {
 			"paddingTop": 8
 		}
 	},
+<<<<<<< HEAD
 	"pt-28": {
 		"style": {
 			"paddingTop": 112
@@ -654,6 +732,8 @@
 			"paddingBottom": 80
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"text-center": {
 		"style": {
 			"textAlign": "center"
@@ -689,12 +769,15 @@
 			"lineHeight": 24
 		}
 	},
+<<<<<<< HEAD
 	"text-sm": {
 		"style": {
 			"fontSize": 14,
 			"lineHeight": 20
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"font-bold": {
 		"style": {
 			"fontWeight": "700"
@@ -733,6 +816,7 @@
 			"outlineOffset": 2
 		}
 	},
+<<<<<<< HEAD
 	"drop-shadow-xl": {
 		"style": {
 			"--tw-drop-shadow": "drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08))",
@@ -745,11 +829,14 @@
 			"filter": "var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)"
 		}
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"filter": {
 		"style": {
 			"filter": "var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)"
 		}
 	},
+<<<<<<< HEAD
 	"sm:mt-32": {
 		"style": {
 			"marginTop": 128
@@ -768,12 +855,15 @@
 		},
 		"media": "(min-width: 640px)"
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"sm:w-1/2": {
 		"style": {
 			"width": "50%"
 		},
 		"media": "(min-width: 640px)"
 	},
+<<<<<<< HEAD
 	"sm:flex-col": {
 		"style": {
 			"flexDirection": "column"
@@ -786,6 +876,8 @@
 		},
 		"media": "(min-width: 640px)"
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"sm:items-center": {
 		"style": {
 			"alignItems": "center"
@@ -798,6 +890,7 @@
 		},
 		"media": "(min-width: 640px)"
 	},
+<<<<<<< HEAD
 	"sm:pt-10": {
 		"style": {
 			"paddingTop": 40
@@ -864,6 +957,8 @@
 		},
 		"media": "(min-width: 768px)"
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"md:w-1/3": {
 		"style": {
 			"width": "33.333333%"
@@ -876,6 +971,7 @@
 		},
 		"media": "(min-width: 768px)"
 	},
+<<<<<<< HEAD
 	"md:flex-row": {
 		"style": {
 			"flexDirection": "row"
@@ -924,6 +1020,8 @@
 		},
 		"media": "(min-width: 1024px)"
 	},
+=======
+>>>>>>> dc23bf11ca7ad2dbd51cbe9a371b512b8e24aea0
 	"xl:w-1/5": {
 		"style": {
 			"width": "20%"
