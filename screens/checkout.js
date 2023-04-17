@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   useWindowDimensions,
+  Platform,
 } from "react-native";
 import { getBreakPoint } from "../utils/screen.js";
 
@@ -56,10 +57,13 @@ const Checkout = () => {
     },
   ];
 
+  /* Images using the require function must be static,
+   * at the time of creation (no string templates)
+   * so to get around that, we use a switch statement
+   * @param {String} service to get logo for
+   * @return {Object} image resource
+   */
   const getServiceLogo = (service) => {
-    // images using the require function must be static,
-    // at the time of creation (no string templates)
-    // so to get around that, we use a switch statement
     let logo = null;
     switch (service) {
       case "postmates":
@@ -75,15 +79,32 @@ const Checkout = () => {
     return logo;
   };
 
+  /*Some react native components seem to behave differently
+   * in web vs mobile, so this is a helper function
+   * to separate web and mobile logic.
+   * @return {Boolean} value indicating if platform is mobile
+   */
+  const isMobile = () => {
+    return !(Platform.OS != "android" && Platform.OS != "ios");
+  };
+
+  /*Checking to see if screen size is large or smaller
+   * @return {Boolean} if is lg or smaller
+   */
+  const isLgOrSmaller = () => {
+    return (
+      getBreakPoint(window.width) == "sm" ||
+      getBreakPoint(window.width) == "md" ||
+      getBreakPoint(window.width) == "lg"
+    );
+  };
+
   return (
     <View>
       <View
-        style={[
-          tailwind(
-            "flex flex-row lg:hidden fixed top-0 z-10 w-full p-2 rounded-b-xl"
-          ),
-          { backgroundColor: "rgba(255,255,255,0.9)" },
-        ]}
+        style={tailwind(
+          "flex flex-row justify-center items-center lg:hidden fixed top-0 z-10 w-full p-2 rounded-b-xl h-[100px] bg-white/90"
+        )}
       >
         {cart.map(({ service, total }) => (
           <View
@@ -107,12 +128,9 @@ const Checkout = () => {
           style={[
             tailwind(
               `flex flex-1 sm:flex-col lg:flex-row lg:justify-center lg:items-center ${
-                getBreakPoint(window.width) == "sm" ||
-                getBreakPoint(window.width) == "md" ||
-                getBreakPoint(window.width) == "lg"
-                  ? "pt-20 pb-20"
-                  : ""
-              }`
+                isLgOrSmaller() && isMobile() ? "pb-20" : ""
+              }
+            ${isLgOrSmaller() && !isMobile() ? "mt-[100px]" : ""}`
             ),
             { gap: 15 },
           ]}
