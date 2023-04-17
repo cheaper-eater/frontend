@@ -10,6 +10,7 @@ import { MenuCard } from "../components/cards";
 import { detailStore } from "../api/detail";
 
 const MenuView = ({ route }) => {
+  const navigation = useNavigation();
   const tailwind = useTailwind();
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 5 };
   const window = useWindowDimensions();
