@@ -12,6 +12,7 @@ import utilities from "./tailwind.json";
 // import DbTest from "./screens/dbTest";
 // import AddressDetailsProvider from "./contexts/AddressContext";
 import Pages from "./routes/routes";
+// import CreateNewPassword from "./screens/createNewPassword";
 
 export default function App() {
   return (
@@ -22,7 +23,8 @@ export default function App() {
         {/* <ListView /> */}
         {/* <SignUp/> */}
         {/* <Checkout /> */}
-        {/* <AccountRecovery/> */}
+        {/* <CreateNewPassword /> */}
+        {/* <AccountRecovery /> */}
         {/* <DbTest /> */}
         <Pages />
       </TailwindProvider>
