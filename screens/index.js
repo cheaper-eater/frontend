@@ -4,9 +4,7 @@ import {
   Image,
   FlatList,
   useWindowDimensions,
-  TextInput,
   TouchableOpacity,
-  Platform,
   ImageBackground,
 } from "react-native";
 import { useTailwind } from "tailwind-rn";
@@ -19,9 +17,8 @@ import ModalView from "../components/modal";
 import { getBreakPoint } from "../utils/screen";
 import { popularPicks } from "../api/get";
 import { addressDetailsContext } from "../contexts/AddressContext";
-import FoodTypes from "./foodTypes";
 import SearchBarComponent from "../components/searchBar";
-import { SearchBar } from "react-native-screens";
+import FoodTypes from "./foodTypes";
 
 const Index = () => {
   const navigation = useNavigation();
@@ -32,10 +29,8 @@ const Index = () => {
   const [visible, setVisible] = useState(false);
   // const popularRestaurants = require("./test.json").data.slice(0, 20);
   const [popularRestaurants, setPopularRestaurants] = useState([]);
-
   const [foodTypeScreen, showFoodTypeScreen] = useState(false);
   const foodTypesRef = useRef(null);
-  const searchBarRef = useRef(null);
   const address = useContext(addressDetailsContext);
   // useEffect(() => {
   //   const handleClickOutside = (event) => {
@@ -124,16 +119,14 @@ const Index = () => {
               </TouchableOpacity>
             </View>
 
-            <View style={tailwind("flex flex-row items-center")} >
+            <View style={tailwind("flex flex-row items-center")}>
               <SearchBarComponent
                 isFoodTypesOpen={foodTypeScreen}
                 openFoodTypes={showFoodTypeScreen}
               />
             </View>
-
-            
           </>
-          
+
           <>
             {foodTypeScreen ? (
               <View ref={foodTypesRef}>

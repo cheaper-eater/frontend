@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useTailwind } from "tailwind-rn";
 import { Dimensions, TextInput, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -14,7 +13,6 @@ import { View, Image } from "react-native-web";
 const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
   const tailwind = useTailwind();
   const navigation = useNavigation();
-  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -56,8 +54,6 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
           }}
         />
       </View>
-
-
     </View>
   );
 };

@@ -15,7 +15,6 @@ import PageContainer from "../components/pageContainer";
 import { getBreakPoint } from "../utils/screen";
 import { search } from "../api/search";
 import { addressDetailsContext } from "../contexts/AddressContext";
-import { FoodTypes } from "./foodTypes";
 import SearchBarComponent from "../components/searchBar";
 
 const orderByDescending = (a, b) => b - a;
