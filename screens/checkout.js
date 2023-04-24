@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useTailwind } from "tailwind-rn";
 import {
   ScrollView,
@@ -9,53 +10,19 @@ import {
   Platform,
 } from "react-native";
 import { getBreakPoint } from "../utils/screen.js";
+import { getLocalStorage } from "../api/localStorage.js";
 
 const Checkout = () => {
   const window = useWindowDimensions();
   const tailwind = useTailwind();
-  const image =
-    "https://www.pngplay.com/wp-content/uploads/2/Burger-Transparent-PNG.png";
-  const cart = [
-    {
-      service: "postmates",
-      items: [
-        { name: "item1", image: image, price: 500, quantity: 2 },
-        { name: "item2", image: image, price: 500, quantity: 2 },
-        { name: "item3", image: image, price: 500, quantity: 2 },
-        { name: "item4", image: image, price: 500, quantity: 2 },
-      ],
-      eta: "5 min",
-      deliveryFee: 700,
-      tax: 1200,
-      total: 10000,
-    },
-    {
-      service: "grubhub",
-      items: [
-        { name: "item1", image: image, price: 500, quantity: 2 },
-        { name: "item2", image: image, price: 500, quantity: 2 },
-        { name: "item3", image: image, price: 500, quantity: 2 },
-        { name: "item4", image: image, price: 500, quantity: 2 },
-      ],
-      eta: "5 min",
-      deliveryFee: 700,
-      tax: 1200,
-      total: 10000,
-    },
-    {
-      service: "doordash",
-      items: [
-        { name: "item1", image: image, price: 500, quantity: 2 },
-        { name: "item2", image: image, price: 500, quantity: 2 },
-        { name: "item3", image: image, price: 500, quantity: 2 },
-        { name: "item4", image: image, price: 500, quantity: 2 },
-      ],
-      eta: "5 min",
-      deliveryFee: 700,
-      tax: 1200,
-      total: 10000,
-    },
-  ];
+
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      setCart(await getLocalStorage("cart"));
+    })();
+  }, []);
 
   /* Images using the require function must be static,
    * at the time of creation (no string templates)
