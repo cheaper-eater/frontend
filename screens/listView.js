@@ -15,6 +15,8 @@ import PageContainer from "../components/pageContainer";
 import { getBreakPoint } from "../utils/screen";
 import { search } from "../api/search";
 import { addressDetailsContext } from "../contexts/AddressContext";
+import { FoodTypes } from "./foodTypes";
+import SearchBarComponent from "../components/searchBar";
 
 const orderByDescending = (a, b) => b - a;
 const orderByAscending = (a, b) => a - b;
@@ -51,6 +53,7 @@ const ListView = ({ route }) => {
       orderBy: orderByDescending,
     },
   ];
+  const [foodTypeScreen, showFoodTypeScreen] = useState(false);
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 5 };
   const window = useWindowDimensions();
   const [searchResults, setSearchResults] = useState([]);
@@ -66,7 +69,7 @@ const ListView = ({ route }) => {
     (async () => {
       filterResults(await search(route.params.searchStr));
     })();
-  }, []);
+  }, [route.params.searchStr]);
 
   useEffect(() => {
     filterResults(searchResults);
@@ -102,6 +105,12 @@ const ListView = ({ route }) => {
               {address[0].address.address1}
             </Text>
           </View>
+        </View>
+        <View style={tailwind("flex flex-row items-center")}>
+          <SearchBarComponent
+            isFoodTypesOpen={foodTypeScreen}
+            openFoodTypes={showFoodTypeScreen}
+          />
         </View>
       </View>
       <TouchableOpacity

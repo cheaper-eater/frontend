@@ -20,6 +20,8 @@ import { getBreakPoint } from "../utils/screen";
 import { popularPicks } from "../api/get";
 import { addressDetailsContext } from "../contexts/AddressContext";
 import FoodTypes from "./foodTypes";
+import SearchBarComponent from "../components/searchBar";
+import { SearchBar } from "react-native-screens";
 
 const Index = () => {
   const navigation = useNavigation();
@@ -121,43 +123,17 @@ const Index = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={tailwind("flex flex-row items-center")}>
-              {!foodTypeScreen ? (
-                <Image
-                  style={tailwind("w-5 h-5")}
-                  resizeMode="contain"
-                  source={require("../assets/icons/black/search.png")}
-                />
-              ) : (
-                <TouchableOpacity onPress={() => showFoodTypeScreen(false)}>
-                  <Image
-                    style={tailwind("w-5 h-5")}
-                    resizeMode="contain"
-                    source={require("../assets/icons/black/back.png")}
-                  />
-                </TouchableOpacity>
-              )}
 
-              <TextInput
-                ref={searchBarRef}
-                placeholder="What would you like to eat?"
-                onFocus={() => showFoodTypeScreen(true)}
-                style={{
-                  height: 40,
-                  margin: 12,
-                  borderLeftWidth: 1,
-                  padding: 10,
-                  width:
-                    Platform.OS === "web" ? window.width / 2 : window.width,
-                }}
-                onSubmitEditing={({ nativeEvent: { text } }) => {
-                  navigation.navigate("Search", {
-                    searchStr: text,
-                  });
-                }}
+            <View style={tailwind("flex flex-row items-center")} >
+              <SearchBarComponent
+                isFoodTypesOpen={foodTypeScreen}
+                openFoodTypes={showFoodTypeScreen}
               />
             </View>
+
+            
           </>
+          
           <>
             {foodTypeScreen ? (
               <View ref={foodTypesRef}>
