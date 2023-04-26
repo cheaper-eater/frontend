@@ -95,11 +95,22 @@ const Index = () => {
                   Give yourself a treat!🥘
                 </Text>
               </View>
-              <Image
-                style={[tailwind("w-9 h-9"), { borderRadius: 20 }]}
-                resizeMode="contain"
-                source={{ uri: faker.image.avatar() }}
-              />
+              <View style={tailwind("flex flex-row")}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Checkout")}
+                >
+                  <Image
+                    style={tailwind("w-9 h-9 mr-4")}
+                    resizeMode="contain"
+                    source={require("../assets/icons/black/cart.png")}
+                  />
+                </TouchableOpacity>
+                <Image
+                  style={[tailwind("w-9 h-9"), { borderRadius: 20 }]}
+                  resizeMode="contain"
+                  source={{ uri: faker.image.avatar() }}
+                />
+              </View>
             </View>
             <View style={tailwind("flex flex-row")}>
               <TouchableOpacity

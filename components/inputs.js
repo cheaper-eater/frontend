@@ -9,6 +9,7 @@ const IconInput = React.forwardRef(function refFunction(
     placeholder,
     keyboardType = "default",
     secureTextEntry = false,
+    onChangeText = () => {},
   },
   ref
 ) {
@@ -31,6 +32,7 @@ const IconInput = React.forwardRef(function refFunction(
         placeholder={placeholder}
         keyboardType={keyboardType}
         secureTextEntry={secureTextEntry}
+        onChangeText={(e) => onChangeText(e)}
         ref={ref}
       />
     </View>
