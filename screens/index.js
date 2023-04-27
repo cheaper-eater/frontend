@@ -23,7 +23,7 @@ const Index = () => {
   const window = useWindowDimensions();
 
   const [popularRestaurants, setPopularRestaurants] = useState([]);
-  const [visible, setVisible] = useState(false);
+  const [, setVisible] = useState(false);
 
   const address = useContext(addressDetailsContext);
 
