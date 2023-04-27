@@ -1,8 +1,13 @@
 import { useTailwind } from "tailwind-rn";
-import { Dimensions, TextInput, TouchableOpacity } from "react-native";
+import {
+  Dimensions,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Image,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { isMobile } from "react-device-detect";
-import { View, Image } from "react-native-web";
 
 /**
  * Search bar component
