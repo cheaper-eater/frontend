@@ -5,6 +5,7 @@ import Index from "../screens/index";
 import ListView from "../screens/listView";
 import Base from "../screens/base";
 import VerifyAccountEmail from "../screens/verifyAccountEmail";
+import Login from "../screens/login";
 import SignUp from "../screens/signUp";
 import CreateNewPassword from "../screens/createNewPassword";
 import MenuView from "../screens/menuView";
@@ -20,6 +21,7 @@ const Pages = () => {
           screens: {
             Home: "",
             Search: "search",
+            Login: "login",
             SignUp: "signUp",
             VerifyAccountEmail: "verifyAccountEmail",
             CreateNewPassword: "passwordReset",
@@ -41,6 +43,7 @@ const Pages = () => {
             name="CreateNewPassword"
             component={CreateNewPassword}
           />
+          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="Menu" component={MenuView} />
           <Stack.Screen name="Checkout" component={Checkout} />

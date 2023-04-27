@@ -47,7 +47,7 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
               : Dimensions.get("window").width * 0.4,
           }}
           onSubmitEditing={({ nativeEvent: { text } }) => {
-            // navigation.navigate("Home")
+            openFoodTypes(false);
             navigation.navigate("Search", {
               searchStr: text,
             });
