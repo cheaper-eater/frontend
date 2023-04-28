@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import { Image, Text, useWindowDimensions, View, FlatList } from "react-native";
 import { useTailwind } from "tailwind-rn";
@@ -10,7 +9,6 @@ import { addressDetailsContext } from "../contexts/AddressContext";
 import { MenuCard } from "../components/cards";
 import { detailStore } from "../api/detail";
 import { CustomizationModal } from "../components/modal";
-import { setLocalStorage } from "../api/localStorage";
 
 const MenuView = ({ route }) => {
   const [visible, setVisible] = useState(false);
@@ -28,12 +26,12 @@ const MenuView = ({ route }) => {
   useEffect(() => {
     (async () => {
       setMenuData(
-        // await detailStore({
-        //   postmates: route.params.postmates,
-        //   grubhub: route.params.grubhub,
-        //   doordash: route.params.doordash,
-        // })
-        require("./menu.json")
+         await detailStore({
+           postmates: route.params.postmates,
+           grubhub: route.params.grubhub,
+           doordash: route.params.doordash,
+         })
+        // require("./menu.json")
       );
     })();
   }, []);
