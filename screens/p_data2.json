@@ -1,0 +1,1280 @@
+{
+  "status": "success",
+  "data": {
+    "itemDescription": "Pepperoni, sausage, mushrooms, olives, onion, and bell pepper.",
+    "price": 1799,
+    "sectionUuid": "be70468d-96a2-4fa4-9480-62b35bbcf84a",
+    "subsectionUuid": "c1e71692-f494-4377-9110-f4cc4150b3b4",
+    "title": "The Works Pizza",
+    "uuid": {"postmates": "609bbd46-83a5-4f86-bd39-6168c50f0b8d", "grubhub": 123, "doordash": 456},
+    "customizationsList": [
+      {
+        "maxPermitted": 1,
+        "minPermitted": 1,
+        "minPermittedUnique": 0,
+        "maxPermittedUnique": 0,
+        "parentCustomizationOptionUuids": [],
+        "title": "Choose your size",
+        "uuid": "2a7a579a-35c3-446e-9427-0b8b400211ea",
+        "displayState": "",
+        "groupId": 0,
+        "options": [
+          {
+            "defaultQuantity": 0,
+            "minPermitted": 0,
+            "maxPermitted": 0,
+            "price": 0,
+            "title": "Small (12\")",
+            "uuid": "8f657239-3891-49a7-95dc-f962f3cbfb3c",
+            "isSoldOut": false,
+            "childCustomizationList": [
+              {
+                "maxPermitted": 14,
+                "minPermitted": 0,
+                "minPermittedUnique": 0,
+                "maxPermittedUnique": 0,
+                "parentCustomizationOptionUuids": [],
+                "title": "Add toppings",
+                "uuid": "4bca8063-e866-4547-be64-954cee7fa948",
+                "displayState": "",
+                "groupId": 0,
+                "options": [
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 0,
+                    "title": "None",
+                    "uuid": "9617e787-f1c4-44f1-8e65-ee3a5b4ce98f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Basil",
+                    "uuid": "baa2bfe9-f296-400e-b5fc-61dcfe8cde1f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Bell Peppers",
+                    "uuid": "854d09a7-146e-4b76-9035-1f4ab4e13ae2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Canadian Bacon",
+                    "uuid": "fc56d708-8af0-4e41-bb6f-7bab461332b2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Eggplant",
+                    "uuid": "d6e704bf-3db3-4997-8ca6-6e2c258eac46",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Garlic",
+                    "uuid": "a66222b0-4463-4ac6-b35b-6173227659fa",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Ham",
+                    "uuid": "1def6e79-fced-4071-8b38-5f145f7c490d",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Jalapeños",
+                    "uuid": "ebe06c27-2f83-428a-9a9e-b15c2e38b4c7",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Mushrooms",
+                    "uuid": "e11a5334-e001-4421-a39f-dbd5ce182704",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Olives",
+                    "uuid": "d687a947-fcd5-4eeb-a5de-b63163ac202f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Onions",
+                    "uuid": "ebfa8c0f-489f-4bbc-a559-4900fd5827d0",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Pepperoni",
+                    "uuid": "87b429e5-3228-461c-89c5-185c7f09b283",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Pineapple",
+                    "uuid": "17e679b1-9aa5-43c9-877f-5264fd1d50ed",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Sausage",
+                    "uuid": "73ed114d-f749-4e77-a461-1d99b9fbe4a6",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 150,
+                    "title": "Tomatoes",
+                    "uuid": "e52012f2-c5a2-457d-aeaa-8fca6509a3c2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  }
+                ]
+              }
+            ],
+            "itemAttributeInfo": {
+              "dietaryLabels": []
+            },
+            "subtitle": null,
+            "shouldAutoShowChildCustomizations": true
+          },
+          {
+            "defaultQuantity": 0,
+            "minPermitted": 0,
+            "maxPermitted": 0,
+            "price": 300,
+            "title": "Medium (14\")",
+            "uuid": "0bcf0368-f0f1-4ed4-b4e9-95d5acacd481",
+            "isSoldOut": false,
+            "childCustomizationList": [
+              {
+                "maxPermitted": 17,
+                "minPermitted": 0,
+                "minPermittedUnique": 0,
+                "maxPermittedUnique": 0,
+                "parentCustomizationOptionUuids": [],
+                "title": "Add toppings",
+                "uuid": "2f5926bb-b1e2-4c33-8f3e-f099ee9dc8a8",
+                "displayState": "",
+                "groupId": 0,
+                "options": [
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 0,
+                    "title": "None",
+                    "uuid": "9617e787-f1c4-44f1-8e65-ee3a5b4ce98f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Basil",
+                    "uuid": "baa2bfe9-f296-400e-b5fc-61dcfe8cde1f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Bell Peppers",
+                    "uuid": "854d09a7-146e-4b76-9035-1f4ab4e13ae2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Canadian Bacon",
+                    "uuid": "fc56d708-8af0-4e41-bb6f-7bab461332b2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Eggplant",
+                    "uuid": "d6e704bf-3db3-4997-8ca6-6e2c258eac46",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Garlic",
+                    "uuid": "a66222b0-4463-4ac6-b35b-6173227659fa",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Ham",
+                    "uuid": "1def6e79-fced-4071-8b38-5f145f7c490d",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Jalapeños",
+                    "uuid": "ebe06c27-2f83-428a-9a9e-b15c2e38b4c7",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Mushrooms",
+                    "uuid": "e11a5334-e001-4421-a39f-dbd5ce182704",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Olives",
+                    "uuid": "d687a947-fcd5-4eeb-a5de-b63163ac202f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Onions",
+                    "uuid": "ebfa8c0f-489f-4bbc-a559-4900fd5827d0",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Pepperoni",
+                    "uuid": "87b429e5-3228-461c-89c5-185c7f09b283",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Pineapple",
+                    "uuid": "17e679b1-9aa5-43c9-877f-5264fd1d50ed",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Sausage",
+                    "uuid": "73ed114d-f749-4e77-a461-1d99b9fbe4a6",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Tomatoes",
+                    "uuid": "e52012f2-c5a2-457d-aeaa-8fca6509a3c2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Chicken",
+                    "uuid": "eaee28b4-4b3b-4a90-b60b-8ef11c911518",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Meatball",
+                    "uuid": "bde6f11e-f26d-47c9-b585-53280daaffe7",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Pastrami",
+                    "uuid": "0f99c232-c8d7-464b-9277-c28d784fea18",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  }
+                ]
+              }
+            ],
+            "itemAttributeInfo": {
+              "dietaryLabels": []
+            },
+            "subtitle": null,
+            "shouldAutoShowChildCustomizations": true
+          },
+          {
+            "defaultQuantity": 0,
+            "minPermitted": 0,
+            "maxPermitted": 0,
+            "price": 700,
+            "title": "Large (16\")",
+            "uuid": "cbfe0f67-6351-4a58-90d3-75424807619c",
+            "isSoldOut": false,
+            "childCustomizationList": [
+              {
+                "maxPermitted": 17,
+                "minPermitted": 0,
+                "minPermittedUnique": 0,
+                "maxPermittedUnique": 0,
+                "parentCustomizationOptionUuids": [],
+                "title": "Add toppings",
+                "uuid": "242a6546-50bc-4cbd-80bc-72679b192a9e",
+                "displayState": "",
+                "groupId": 0,
+                "options": [
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 0,
+                    "title": "None",
+                    "uuid": "9617e787-f1c4-44f1-8e65-ee3a5b4ce98f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Basil",
+                    "uuid": "baa2bfe9-f296-400e-b5fc-61dcfe8cde1f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Bell Peppers",
+                    "uuid": "854d09a7-146e-4b76-9035-1f4ab4e13ae2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Canadian Bacon",
+                    "uuid": "fc56d708-8af0-4e41-bb6f-7bab461332b2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Eggplant",
+                    "uuid": "d6e704bf-3db3-4997-8ca6-6e2c258eac46",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 200,
+                    "title": "Garlic",
+                    "uuid": "a66222b0-4463-4ac6-b35b-6173227659fa",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Ham",
+                    "uuid": "1def6e79-fced-4071-8b38-5f145f7c490d",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Jalapeños",
+                    "uuid": "ebe06c27-2f83-428a-9a9e-b15c2e38b4c7",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Mushrooms",
+                    "uuid": "e11a5334-e001-4421-a39f-dbd5ce182704",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Olives",
+                    "uuid": "d687a947-fcd5-4eeb-a5de-b63163ac202f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Onions",
+                    "uuid": "ebfa8c0f-489f-4bbc-a559-4900fd5827d0",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Pepperoni",
+                    "uuid": "87b429e5-3228-461c-89c5-185c7f09b283",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Pineapple",
+                    "uuid": "17e679b1-9aa5-43c9-877f-5264fd1d50ed",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Sausage",
+                    "uuid": "73ed114d-f749-4e77-a461-1d99b9fbe4a6",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 250,
+                    "title": "Tomatoes",
+                    "uuid": "e52012f2-c5a2-457d-aeaa-8fca6509a3c2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 350,
+                    "title": "Chicken",
+                    "uuid": "eaee28b4-4b3b-4a90-b60b-8ef11c911518",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 350,
+                    "title": "Meatball",
+                    "uuid": "bde6f11e-f26d-47c9-b585-53280daaffe7",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 350,
+                    "title": "Pastrami",
+                    "uuid": "0f99c232-c8d7-464b-9277-c28d784fea18",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  }
+                ]
+              }
+            ],
+            "itemAttributeInfo": {
+              "dietaryLabels": []
+            },
+            "subtitle": [
+              {
+                "breakStyle": "single",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Popular",
+                    "color": "#05944F"
+                  }
+                ]
+              }
+            ],
+            "subtitleV2": {
+              "richTextElements": [
+                {
+                  "text": {
+                    "text": {
+                      "text": "Popular",
+                      "font": {
+                        "style": "PARAGRAPH_SMALL",
+                        "weight": "NORMAL"
+                      },
+                      "color": "EATS"
+                    },
+                    "predefinedDecorations": null
+                  },
+                  "type": "text"
+                }
+              ]
+            },
+            "shouldAutoShowChildCustomizations": true
+          },
+          {
+            "defaultQuantity": 0,
+            "minPermitted": 0,
+            "maxPermitted": 0,
+            "price": 1000,
+            "title": "Extra Large (18\")",
+            "uuid": "fc03325c-8ea1-4c9d-b134-3fa495c9cf78",
+            "isSoldOut": false,
+            "childCustomizationList": [
+              {
+                "maxPermitted": 17,
+                "minPermitted": 0,
+                "minPermittedUnique": 0,
+                "maxPermittedUnique": 0,
+                "parentCustomizationOptionUuids": [],
+                "title": "Add toppings",
+                "uuid": "339d36f6-0fee-4c3b-b14c-1c1ce18b4ee7",
+                "displayState": "",
+                "groupId": 0,
+                "options": [
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 0,
+                    "title": "None",
+                    "uuid": "9617e787-f1c4-44f1-8e65-ee3a5b4ce98f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Basil",
+                    "uuid": "baa2bfe9-f296-400e-b5fc-61dcfe8cde1f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Bell Peppers",
+                    "uuid": "854d09a7-146e-4b76-9035-1f4ab4e13ae2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Canadian Bacon",
+                    "uuid": "fc56d708-8af0-4e41-bb6f-7bab461332b2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Eggplant",
+                    "uuid": "d6e704bf-3db3-4997-8ca6-6e2c258eac46",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Garlic",
+                    "uuid": "a66222b0-4463-4ac6-b35b-6173227659fa",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Ham",
+                    "uuid": "1def6e79-fced-4071-8b38-5f145f7c490d",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Jalapeños",
+                    "uuid": "ebe06c27-2f83-428a-9a9e-b15c2e38b4c7",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Mushrooms",
+                    "uuid": "e11a5334-e001-4421-a39f-dbd5ce182704",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Olives",
+                    "uuid": "d687a947-fcd5-4eeb-a5de-b63163ac202f",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Onions",
+                    "uuid": "ebfa8c0f-489f-4bbc-a559-4900fd5827d0",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Pepperoni",
+                    "uuid": "87b429e5-3228-461c-89c5-185c7f09b283",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Pineapple",
+                    "uuid": "17e679b1-9aa5-43c9-877f-5264fd1d50ed",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Sausage",
+                    "uuid": "73ed114d-f749-4e77-a461-1d99b9fbe4a6",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 300,
+                    "title": "Tomatoes",
+                    "uuid": "e52012f2-c5a2-457d-aeaa-8fca6509a3c2",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 350,
+                    "title": "Chicken",
+                    "uuid": "eaee28b4-4b3b-4a90-b60b-8ef11c911518",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 350,
+                    "title": "Meatball",
+                    "uuid": "bde6f11e-f26d-47c9-b585-53280daaffe7",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  },
+                  {
+                    "defaultQuantity": 0,
+                    "minPermitted": 0,
+                    "maxPermitted": 1,
+                    "price": 350,
+                    "title": "Pastrami",
+                    "uuid": "0f99c232-c8d7-464b-9277-c28d784fea18",
+                    "isSoldOut": false,
+                    "childCustomizationList": [],
+                    "itemAttributeInfo": {
+                      "dietaryLabels": []
+                    },
+                    "subtitle": null,
+                    "shouldAutoShowChildCustomizations": false
+                  }
+                ]
+              }
+            ],
+            "itemAttributeInfo": {
+              "dietaryLabels": []
+            },
+            "subtitle": null,
+            "shouldAutoShowChildCustomizations": true
+          }
+        ]
+      }
+    ],
+    "hasCustomizations": true,
+    "imageUrl": "https://tb-static.uber.com/prod/image-proc/processed_images/80f4bb7453a28167cabc018cfd58547b/b4facf495c22df52f3ca635379ebe613.jpeg",
+    "images": [
+      {
+        "imageUrl": "https://tb-static.uber.com/prod/image-proc/processed_images/80f4bb7453a28167cabc018cfd58547b/b4facf495c22df52f3ca635379ebe613.jpeg"
+      }
+    ],
+    "suspendReason": "Item not available right now",
+    "suspendUntil": 0,
+    "itemPromotion": null,
+    "itemPromotionV2": {
+      "availablePromotion": null,
+      "appliedPromotion": null,
+      "promotionData": null
+    },
+    "classifications": [],
+    "itemAttributeInfo": {
+      "dietaryLabels": []
+    },
+    "tagSection": null,
+    "productDetailsItems": [
+      {
+        "type": "QUANTITY_SELECTOR",
+        "payload": {
+          "quantitySelectorPayload": {
+            "itemUuid": "609bbd46-83a5-4f86-bd39-6168c50f0b8d",
+            "storeUuid": "51f2287b-6609-54ee-bd06-952c093d03dc"
+          },
+          "type": "quantitySelectorPayload"
+        }
+      },
+      {
+        "type": "REMOVE_ITEM_BUTTON",
+        "payload": {
+          "removeItemButtonPayload": {},
+          "type": "removeItemButtonPayload"
+        }
+      },
+      {
+        "type": "PRICING",
+        "payload": {
+          "pricingPayload": {
+            "pricingRichText": {
+              "richTextElements": [
+                {
+                  "text": {
+                    "text": {
+                      "text": "$17.99",
+                      "font": {
+                        "style": "HEADING_X_SMALL",
+                        "weight": "MEDIUM"
+                      },
+                      "color": "CONTENT_PRIMARY"
+                    },
+                    "predefinedDecorations": null
+                  },
+                  "type": "text"
+                }
+              ],
+              "accessibilityText": "$17.99"
+            }
+          },
+          "type": "pricingPayload"
+        }
+      }
+    ],
+    "customizationDetailsItems": [],
+    "purchaseInfo": {
+      "purchaseOptions": [],
+      "pricingInfo": {}
+    },
+    "lowAvailabilityLabel": null,
+    "itemsUpsell": [],
+    "crossSellSection": null
+  }
+}

@@ -53,13 +53,7 @@ const ListViewCard = ({
       />
       <View style={tailwind("flex flex-1 justify-between p-2")}>
         <Text style={tailwind("text-lg font-bold")}>{title}</Text>
-        <View
-        // style={
-        //   tailwind(
-        //   "flex w-full flex-row justify-between pt-2 font-bold"
-        // )
-        // }
-        >
+        <View>
           {props}
           <Text>
             Delivery Fee:
@@ -109,8 +103,16 @@ const RestaurantCard = ({ title, image, style, rating, onPress }) => {
   );
 };
 
-const MenuCard = ({ title, image, style, desc, price }) => {
-  const [count, setCount] = useState(0);
+const MenuCard = ({
+  title,
+  image,
+  ids,
+  style,
+  desc,
+  price,
+  setModalVisible,
+  modalObjectSetter,
+}) => {
   const flip = useRef(new Animated.Value(0)).current;
   const [flipRotation, setFlipRotation] = useState(0);
   flip.addListener(({ value }) => setFlipRotation(value));
@@ -167,7 +169,7 @@ const MenuCard = ({ title, image, style, desc, price }) => {
         >
           <Animated.View
             style={[
-              tailwind("bg-white rounded-xl min-h-[330px]"),
+              tailwind("bg-white rounded-xl min-h-[280px]"),
               style,
               { alignItems: "center", justifyContent: "center", padding: "1%" },
               { ...backStyle },
@@ -197,7 +199,7 @@ const MenuCard = ({ title, image, style, desc, price }) => {
         <>
           <Animated.View
             style={[
-              tailwind("bg-white rounded-xl min-h-[330px]"),
+              tailwind("bg-white rounded-xl min-h-[280px]"),
               { justifyContent: "space-between" },
               style,
               { ...frontStyle },
@@ -256,14 +258,20 @@ const MenuCard = ({ title, image, style, desc, price }) => {
                 <></>
               )}
             </View>
-            <Image
-              source={
-                image === "" || image == undefined
-                  ? require("../assets/background/noImage.png")
-                  : { uri: image }
-              }
-              style={tailwind("object-cover w-full h-[200px] rounded-t-xl")}
-            />
+            <TouchableOpacity
+              onPress={() => {
+                setModalVisible(true), modalObjectSetter({ ids });
+              }}
+            >
+              <Image
+                source={
+                  image === "" || image == undefined
+                    ? require("../assets/background/noImage.png")
+                    : { uri: image }
+                }
+                style={tailwind("object-cover w-full h-[200px] rounded-t-xl")}
+              />
+            </TouchableOpacity>
             <View style={tailwind("justify-between p-2")}>
               <TouchableOpacity
                 onPress={() => (flipRotation ? backFlip() : frontFlip())}
@@ -274,58 +282,6 @@ const MenuCard = ({ title, image, style, desc, price }) => {
                 <Text style={{ paddingTop: "1%" }} numberOfLines={2}>
                   {desc === "" ? "No description available" : desc}
                 </Text>
-              </TouchableOpacity>
-            </View>
-            <View
-              style={[
-                {
-                  flex: 1,
-                  minWidth: "100%",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  paddingHorizontal: "2%",
-                  paddingBottom: "2%",
-                  maxHeight: "15%",
-                },
-              ]}
-            >
-              <TouchableOpacity
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  borderRadius: 100,
-                  backgroundColor: "rgba(82, 250, 100, 0.2)",
-                }}
-                onPress={() => {
-                  count == 0 ? setCount(0) : setCount(count - 1);
-                }}
-              >
-                <Image
-                  style={tailwind("w-4 h-4")}
-                  resizeMode="contain"
-                  source={require("../assets/icons/black/minus.png")}
-                />
-              </TouchableOpacity>
-              <Text style={tailwind("text-2xl font-bold")}>{count}</Text>
-              <TouchableOpacity
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  borderRadius: 100,
-                  backgroundColor: "rgba(82, 250, 100, 0.2)",
-                }}
-                onPress={() => {
-                  setCount(count + 1);
-                }}
-              >
-                <Image
-                  style={tailwind("w-4 h-4")}
-                  resizeMode="contain"
-                  source={require("../assets/icons/black/plus.png")}
-                />
               </TouchableOpacity>
             </View>
           </Animated.View>
