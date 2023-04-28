@@ -26,11 +26,11 @@ const MenuView = ({ route }) => {
   useEffect(() => {
     (async () => {
       setMenuData(
-         await detailStore({
-           postmates: route.params.postmates,
-           grubhub: route.params.grubhub,
-           doordash: route.params.doordash,
-         })
+        await detailStore({
+          postmates: route.params.postmates,
+          grubhub: route.params.grubhub,
+          doordash: route.params.doordash,
+        })
         // require("./menu.json")
       );
     })();
