@@ -97,7 +97,7 @@ const Checkout = () => {
             </View>
           ))
         ) : (
-          <> </>
+          <></>
         )}
       </View>
       <ScrollView>
