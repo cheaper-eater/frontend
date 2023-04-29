@@ -41,7 +41,7 @@ const Header = ({ setPopularRestaurants }) => {
             setVisible={setVisible}
             setPopularRestaurants={setPopularRestaurants}
           />
-          <View style={tailwind("flex flex-row justify-between mb-4")}>
+          <View style={tailwind("flex flex-row justify-between mb-2")}>
             <View>
               <TouchableOpacity onPress={() => navigation.navigate("Home")}>
                 <Image
@@ -77,7 +77,7 @@ const Header = ({ setPopularRestaurants }) => {
             </View>
           </View>
           <View style={tailwind(`${isAuthPage() ? "hidden" : "block"}`)}>
-            <View style={tailwind("my-2")}>
+            <View>
               <Text style={tailwind("text-2xl font-bold")}>
                 Give yourself a treat!🥘
               </Text>

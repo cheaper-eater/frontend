@@ -24,27 +24,25 @@ const Login = () => {
               "flex flex-1 justify-between sm:justify-center sm:w-1/2 md:w-1/3 xl:w-1/5"
             )}
           >
-            <View>
-              <Image
-                style={tailwind("w-full h-[200px] mb-4")}
-                resizeMode="contain"
-                source={require("../assets/logos/logo.png")}
-              />
-              <IconInput
-                style={tailwind("mb-4")}
-                placeholder="Email"
-                icon={require("../assets/icons/black/at.png")}
-                keyboardType="email-address"
-                ref={email}
-              />
-              <IconInput
-                style={tailwind("mb-4")}
-                placeholder="Password"
-                icon={require("../assets/icons/black/key.png")}
-                secureTextEntry={true}
-                ref={password}
-              />
-            </View>
+            <Image
+              style={tailwind("w-full h-[200px] my-4")}
+              resizeMode="contain"
+              source={require("../assets/logos/logo.png")}
+            />
+            <IconInput
+              style={tailwind("mb-4")}
+              placeholder="Email"
+              icon={require("../assets/icons/black/at.png")}
+              keyboardType="email-address"
+              ref={email}
+            />
+            <IconInput
+              style={tailwind("mb-4")}
+              placeholder="Password"
+              icon={require("../assets/icons/black/key.png")}
+              secureTextEntry={true}
+              ref={password}
+            />
             <View>
               <TouchableOpacity
                 onPress={() => {
