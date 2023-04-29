@@ -115,22 +115,32 @@ const SignUp = () => {
                   </Text>
                 </TouchableOpacity>
               </View>
-              <View style={tailwind("flex-row")}>
-                <TouchableOpacity>
-                  <Image
-                    style={tailwind("w-10 h-10")}
-                    resizeMode="contain"
-                    source={require("../assets/icons/socialmedia/google.png")}
-                  />
-                </TouchableOpacity>
+              <View style={tailwind("flex items-center")}>
+                <View style={tailwind("flex-row justify-between w-1/2")}>
+                  <TouchableOpacity>
+                    <Image
+                      style={tailwind("w-10 h-10")}
+                      resizeMode="contain"
+                      source={require("../assets/icons/socialmedia/google.png")}
+                    />
+                  </TouchableOpacity>
 
-                <TouchableOpacity>
-                  <Image
-                    style={tailwind("w-10 h-10")}
-                    resizeMode="contain"
-                    source={require("../assets/icons/socialmedia/facebook.png")}
-                  />
-                </TouchableOpacity>
+                  <TouchableOpacity>
+                    <Image
+                      style={tailwind("w-10 h-10")}
+                      resizeMode="contain"
+                      source={require("../assets/icons/socialmedia/facebook.png")}
+                    />
+                  </TouchableOpacity>
+
+                  <TouchableOpacity>
+                    <Image
+                      style={tailwind("w-10 h-10")}
+                      resizeMode="contain"
+                      source={require("../assets/icons/socialmedia/twitter.png")}
+                    />
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           </View>
