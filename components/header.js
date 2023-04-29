@@ -17,10 +17,6 @@ const Header = ({ setPopularRestaurants }) => {
   const [visible, setVisible] = useState(false);
   const [foodTypeScreen, showFoodTypeScreen] = useState(false);
   const address = useContext(addressDetailsContext);
-  console.log(
-    address[0]?.address?.address1 === "Set Location" ||
-      !address[0]?.address?.address1
-  );
 
   const foodTypesRef = useRef(null);
 
