@@ -10,6 +10,7 @@ import SignUp from "../screens/signUp";
 import CreateNewPassword from "../screens/createNewPassword";
 import MenuView from "../screens/menuView";
 import Checkout from "../screens/checkout";
+import AccountRecovery from "../screens/accountRecovery";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ const Pages = () => {
             SignUp: "signUp",
             VerifyAccountEmail: "verifyAccountEmail",
             CreateNewPassword: "passwordReset",
+            ForgotPassword: "forgotPassword",
             Menu: "menu",
             Checkout: "checkout",
           },
@@ -45,6 +47,7 @@ const Pages = () => {
           />
           <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="ForgotPassword" component={AccountRecovery} />
           <Stack.Screen name="Menu" component={MenuView} />
           <Stack.Screen name="Checkout" component={Checkout} />
         </Stack.Navigator>

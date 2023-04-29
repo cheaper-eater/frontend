@@ -2,16 +2,19 @@ import { useRef } from "react";
 import { Image, View, Text, TouchableOpacity } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import Toast from "react-native-toast-message";
+import { useNavigation } from "@react-navigation/native";
 import { IconInput } from "../components/inputs";
+import PageContainer from "../components/pageContainer";
 import { signUp } from "../api/auth";
 
 const SignUp = () => {
+  const { navigate } = useNavigation();
   const tailwind = useTailwind();
   const email = useRef("");
   const name = useRef("");
   const password = useRef("");
   return (
-    <>
+    <PageContainer>
       <Toast />
       <View style={tailwind("flex flex-1 sm:items-center")}>
         <View
@@ -98,7 +101,11 @@ const SignUp = () => {
                 already have an account?
               </Text>
 
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  navigate("Login");
+                }}
+              >
                 <Text
                   style={tailwind("text-xl text-lg font-bold text-green-500")}
                 >
@@ -126,7 +133,7 @@ const SignUp = () => {
           </View>
         </View>
       </View>
-    </>
+    </PageContainer>
   );
 };
 
