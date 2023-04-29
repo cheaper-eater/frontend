@@ -21,25 +21,29 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
 
   return (
     <View style={{ flexDirection: "row", alignItems: "center" }}>
-      {Platform.OS === "web" ? (!isFoodTypesOpen ? (
+      {Platform.OS === "web" ? (
+        !isFoodTypesOpen ? (
+          <Image
+            style={tailwind("w-5 h-5 flex-row")}
+            resizeMode="contain"
+            source={require("../assets/icons/black/search.png")}
+          />
+        ) : (
+          <TouchableOpacity onPress={() => openFoodTypes(false)}>
+            <Image
+              style={tailwind("w-5 h-5 flex-row")}
+              resizeMode="contain"
+              source={require("../assets/icons/black/back.png")}
+            />
+          </TouchableOpacity>
+        )
+      ) : (
         <Image
           style={tailwind("w-5 h-5 flex-row")}
           resizeMode="contain"
           source={require("../assets/icons/black/search.png")}
         />
-      ) : (
-        <TouchableOpacity onPress={() => openFoodTypes(false)}>
-          <Image
-            style={tailwind("w-5 h-5 flex-row")}
-            resizeMode="contain"
-            source={require("../assets/icons/black/back.png")}
-          />
-        </TouchableOpacity>
-      )) : <Image
-        style={tailwind("w-5 h-5 flex-row")}
-        resizeMode="contain"
-        source={require("../assets/icons/black/search.png")}
-      />}
+      )}
 
       <View>
         <TextInput
