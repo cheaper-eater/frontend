@@ -122,6 +122,11 @@
 			"marginRight": 16
 		}
 	},
+	"block": {
+		"style": {
+			"display": "block"
+		}
+	},
 	"flex": {
 		"style": {
 			"display": "flex"
@@ -242,19 +247,14 @@
 			"width": 20
 		}
 	},
-	"w-14": {
+	"w-36": {
 		"style": {
-			"width": 56
+			"width": 144
 		}
 	},
 	"w-8": {
 		"style": {
 			"width": 32
-		}
-	},
-	"w-36": {
-		"style": {
-			"width": 144
 		}
 	},
 	"flex-1": {
