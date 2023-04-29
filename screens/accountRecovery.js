@@ -24,7 +24,7 @@ const AccountRecovery = () => {
             <Image
               style={tailwind("w-full h-[250px] mb-4")}
               resizeMode="contain"
-              source={require("../assets/logos/celogo.png")}
+              source={require("../assets/logos/logo.png")}
             />
             <IconInput
               style={tailwind("mb-4")}
