@@ -5,23 +5,23 @@ import {
   TouchableOpacity,
   View,
   Image,
+  Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { isMobile } from "react-device-detect";
 
 /**
  * Search bar component
  * @param {boolean} state of the foodTypes component
  * @param {function} function to change the state of the foodTypes component
  * @returns Search bar component
- * * */
+ */
 const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
   const tailwind = useTailwind();
   const navigation = useNavigation();
 
   return (
     <View style={{ flexDirection: "row", alignItems: "center" }}>
-      {!isFoodTypesOpen ? (
+      {Platform.OS === "web" ? (!isFoodTypesOpen ? (
         <Image
           style={tailwind("w-5 h-5 flex-row")}
           resizeMode="contain"
@@ -35,7 +35,11 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
             source={require("../assets/icons/black/back.png")}
           />
         </TouchableOpacity>
-      )}
+      )) : <Image
+        style={tailwind("w-5 h-5 flex-row")}
+        resizeMode="contain"
+        source={require("../assets/icons/black/search.png")}
+      />}
 
       <View>
         <TextInput
@@ -47,9 +51,9 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
             margin: 12,
             borderLeftWidth: 1,
             padding: 10,
-            width: isMobile
-              ? Dimensions.get("window").width * 0.85
-              : Dimensions.get("window").width * 0.4,
+            width: !(Platform.OS === "web")
+              ? Dimensions.get("screen").width * 0.85
+              : Dimensions.get("screen").width * 0.4,
           }}
           onSubmitEditing={({ nativeEvent: { text } }) => {
             openFoodTypes(false);

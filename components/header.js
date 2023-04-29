@@ -1,5 +1,5 @@
 import { useState, useRef, useContext } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, Platform } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useTailwind } from "tailwind-rn";
 
@@ -46,14 +46,22 @@ const Header = ({ setPopularRestaurants }) => {
             <View style={tailwind("flex flex-row")}>
               <TouchableOpacity onPress={() => navigation.navigate("Checkout")}>
                 <Image
-                  style={tailwind("w-10 h-10 mr-4")}
+                  style={
+                    Platform.OS === "web"
+                      ? tailwind("w-10 h-10 mr-4")
+                      : tailwind("w-8 h-8 mr-4")
+                  }
                   resizeMode="contain"
                   source={require("../assets/icons/black/cart.png")}
                 />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                 <Image
-                  style={tailwind("w-10 h-10 rounded-full")}
+                  style={
+                    Platform.OS === "web"
+                      ? tailwind("w-10 h-10 mr-4")
+                      : tailwind("w-8 h-8 mr-4")
+                  }
                   resizeMode="contain"
                   source={require("../assets/icons/black/user.png")}
                 />
