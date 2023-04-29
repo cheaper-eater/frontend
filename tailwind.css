@@ -44,11 +44,6 @@
   margin-bottom: 1rem
 }
 
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem
-}
-
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem
@@ -143,16 +138,12 @@
   height: 3.5rem
 }
 
-.h-full {
-  height: 100%
-}
-
-.h-7 {
-  height: 1.75rem
-}
-
 .h-8 {
   height: 2rem
+}
+
+.h-full {
+  height: 100%
 }
 
 .min-h-\[320px\] {
@@ -195,16 +186,16 @@
   width: 1.25rem
 }
 
-.w-36 {
-  width: 9rem
-}
-
-.w-7 {
-  width: 1.75rem
+.w-14 {
+  width: 3.5rem
 }
 
 .w-8 {
   width: 2rem
+}
+
+.w-36 {
+  width: 9rem
 }
 
 .flex-1 {
@@ -372,16 +363,16 @@
   font-weight: 700
 }
 
+.font-extrabold {
+  font-weight: 800
+}
+
 .font-medium {
   font-weight: 500
 }
 
 .font-light {
   font-weight: 300
-}
-
-.font-extrabold {
-  font-weight: 800
 }
 
 .text-green-500 {
@@ -397,21 +388,6 @@
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity))
-}
-
-.text-neutral-200 {
-  --tw-text-opacity: 1;
-  color: rgb(229 229 229 / var(--tw-text-opacity))
-}
-
-.text-zinc-200 {
-  --tw-text-opacity: 1;
-  color: rgb(228 228 231 / var(--tw-text-opacity))
-}
-
-.text-zinc-700 {
-  --tw-text-opacity: 1;
-  color: rgb(63 63 70 / var(--tw-text-opacity))
 }
 
 .outline-none {
