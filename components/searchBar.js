@@ -1,5 +1,6 @@
 import { useTailwind } from "tailwind-rn";
 import {
+  Text,
   Dimensions,
   TextInput,
   TouchableOpacity,
@@ -8,6 +9,8 @@ import {
   Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useEffect, useRef, useState } from "react";
+import { autocompleteSearch } from "../api/autocomplete";
 
 /**
  * Search bar component
@@ -18,6 +21,31 @@ import { useNavigation } from "@react-navigation/native";
 const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
   const tailwind = useTailwind();
   const navigation = useNavigation();
+  const searchInput = useRef();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [autocompleteResults, setAutocompleteResults] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      if (searchQuery) {
+        setAutocompleteResults(await autocompleteSearch(searchQuery));
+      }
+    })();
+  }, [searchQuery]);
+
+  const showSearchResults = (query) => {
+    // autocomplete queries contain address information in parenthesis, this results in incorrect search
+    // results. To combat that, text with parenthesis is being removed.
+    query = query.replace(/ *\([^)]*\) */g, "");
+
+    openFoodTypes(false);
+    setAutocompleteResults([]);
+    searchInput.current.value = "";
+
+    navigation.navigate("Search", {
+      searchStr: query,
+    });
+  };
 
   return (
     <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -47,7 +75,9 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
 
       <View>
         <TextInput
+          ref={searchInput}
           placeholder="What would you like to eat?"
+          onChangeText={(text) => setSearchQuery(text)}
           onFocus={() => openFoodTypes(true)}
           style={{
             flexDirection: "row",
@@ -60,12 +90,29 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
               : Dimensions.get("screen").width * 0.4,
           }}
           onSubmitEditing={({ nativeEvent: { text } }) => {
-            openFoodTypes(false);
-            navigation.navigate("Search", {
-              searchStr: text,
-            });
+            showSearchResults(text);
           }}
         />
+        {autocompleteResults && searchQuery ? (
+          <View style={tailwind("ml-4")}>
+            {autocompleteResults.map(({ uuid, title, image }) => (
+              <TouchableOpacity
+                key={uuid}
+                style={tailwind("flex flex-row items-center mb-2")}
+                onPress={() => showSearchResults(title)}
+              >
+                <Image
+                  source={image}
+                  style={tailwind("w-10 h-10 rounded-full mr-2")}
+                  resizeMethod="cover"
+                />
+                <Text>{title}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        ) : (
+          <></>
+        )}
       </View>
     </View>
   );
