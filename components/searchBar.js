@@ -106,7 +106,7 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
                   style={tailwind("w-10 h-10 rounded-full mr-2")}
                   resizeMethod="cover"
                 />
-                <Text>{title}</Text>
+                <Text style={tailwind("flex flex-1")}>{title}</Text>
               </TouchableOpacity>
             ))}
           </View>

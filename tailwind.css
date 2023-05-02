@@ -85,12 +85,12 @@
   margin-right: 1rem
 }
 
-.mr-2 {
-  margin-right: 0.5rem
-}
-
 .ml-4 {
   margin-left: 1rem
+}
+
+.mr-2 {
+  margin-right: 0.5rem
 }
 
 .block {
@@ -153,6 +153,10 @@
   height: 100%
 }
 
+.h-20 {
+  height: 5rem
+}
+
 .min-h-\[320px\] {
   min-height: 320px
 }
@@ -201,6 +205,14 @@
   width: 2rem
 }
 
+.w-screen {
+  width: 100vw
+}
+
+.w-max {
+  width: max-content
+}
+
 .flex-1 {
   flex: 1 1 0%
 }
@@ -221,6 +233,10 @@
   flex-direction: column
 }
 
+.flex-wrap {
+  flex-wrap: wrap
+}
+
 .items-center {
   align-items: center
 }
@@ -239,6 +255,14 @@
 
 .self-end {
   align-self: flex-end
+}
+
+.break-words {
+  overflow-wrap: break-word
+}
+
+.break-all {
+  word-break: break-all
 }
 
 .rounded-xl {
@@ -326,6 +350,10 @@
 
 .pt-2 {
   padding-top: 0.5rem
+}
+
+.pl-4 {
+  padding-left: 1rem
 }
 
 .text-center {
