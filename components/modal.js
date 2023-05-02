@@ -254,7 +254,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
   const [required, setRequired] = useState([]);
 
   const handleItemAdd = async () => {
-    const menu = await getLocalStorage("menu");
+    const menu = await getLocalStorage("cart");
     if (menu) {
       let postmatesIndex = menu.findIndex((item) => {
         return item.service == "postmates";
@@ -367,7 +367,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
           ],
         });
       }
-      await setLocalStorage("menu", menu);
+      await setLocalStorage("cart", menu);
     } else {
       let menu = [];
       if (data.uuid["postmates"]) {
@@ -384,8 +384,6 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
           ],
           eta: "5 min",
           deliveryFee: 700,
-          tax: 1200,
-          total: 10000,
         });
       }
       if (data.uuid["grubhub"]) {
@@ -402,8 +400,6 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
           ],
           eta: "5 min",
           deliveryFee: 700,
-          tax: 1200,
-          total: 10000,
         });
       }
       if (data.uuid["doordash"]) {
@@ -420,11 +416,9 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
           ],
           eta: "5 min",
           deliveryFee: 700,
-          tax: 1200,
-          total: 10000,
         });
       }
-      await setLocalStorage("menu", menu);
+      await setLocalStorage("cart", menu);
     }
     Toast.show({
       type: "success",

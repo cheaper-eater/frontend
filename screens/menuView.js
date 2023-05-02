@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Text, useWindowDimensions, View, FlatList } from "react-native";
 import { useTailwind } from "tailwind-rn";
