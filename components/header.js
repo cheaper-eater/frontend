@@ -101,12 +101,10 @@ const Header = ({ setPopularRestaurants }) => {
               </TouchableOpacity>
             </View>
 
-            <View style={tailwind("flex flex-row items-center")}>
-              <SearchBar
-                isFoodTypesOpen={foodTypeScreen}
-                openFoodTypes={showFoodTypeScreen}
-              />
-            </View>
+            <SearchBar
+              isFoodTypesOpen={foodTypeScreen}
+              openFoodTypes={showFoodTypeScreen}
+            />
 
             {foodTypeScreen ? (
               <View ref={foodTypesRef}>

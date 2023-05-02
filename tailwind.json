@@ -73,12 +73,6 @@
 			"marginBottom": 16
 		}
 	},
-	"my-2": {
-		"style": {
-			"marginTop": 8,
-			"marginBottom": 8
-		}
-	},
 	"mx-4": {
 		"style": {
 			"marginLeft": 16,
@@ -136,21 +130,16 @@
 			"marginRight": 16
 		}
 	},
-
-	"mt-2.5": {
+	"ml-4": {
 		"style": {
-			"marginTop": 10
+			"marginLeft": 16
 		}
 	},
-	"mt-3.5": {
+	"mr-2": {
 		"style": {
-			"marginTop": 14
+			"marginRight": 8
 		}
 	},
-	"mt-3": {
-		"style": {
-			"marginTop": 12
-
 	"block": {
 		"style": {
 			"display": "block"
