@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { Text, useWindowDimensions, View, FlatList } from "react-native";
 import { useTailwind } from "tailwind-rn";
@@ -6,8 +7,11 @@ import PageContainer from "../components/pageContainer";
 import { getBreakPoint } from "../utils/screen";
 import { MenuCard } from "../components/cards";
 import { detailStore } from "../api/detail";
+import { CustomizationModal } from "../components/modal";
 
 const MenuView = ({ route }) => {
+  const [visible, setVisible] = useState(false);
+  const [modalClickId, setModalClickId] = useState();
   const tailwind = useTailwind();
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 5 };
   const window = useWindowDimensions();
@@ -25,6 +29,7 @@ const MenuView = ({ route }) => {
           grubhub: route.params.grubhub,
           doordash: route.params.doordash,
         })
+        // require("./menu.json")
       );
     })();
   }, []);
@@ -37,6 +42,13 @@ const MenuView = ({ route }) => {
 
   return (
     <PageContainer style={tailwind("m-2")}>
+      {modalClickId != undefined ? (
+        <CustomizationModal
+          modalVisible={visible}
+          setModalVisible={setVisible}
+          data={require("./p_data2.json").data}
+        />
+      ) : null}
       {menuData != undefined ? (
         <>
           <View>
@@ -57,8 +69,7 @@ const MenuView = ({ route }) => {
                 renderItem={({ item }) => {
                   return (
                     <>
-                      {/* pageData[pageData.length - 1].items.length != 0 */}
-                      <Text style={tailwind("font-extrabold text-2xl")}>
+                      <Text style={tailwind("font-extrabold text-3xl")}>
                         {item.category}
                       </Text>
                       <FlatList
@@ -67,6 +78,9 @@ const MenuView = ({ route }) => {
                           return (
                             <View style={[tailwind("flex flex-1 ")]}>
                               <MenuCard
+                                modalObjectSetter={setModalClickId}
+                                ids={item.ids}
+                                setModalVisible={setVisible}
                                 style={tailwind("m-2")}
                                 title={item.name}
                                 desc={item.description}

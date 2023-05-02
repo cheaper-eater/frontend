@@ -7,7 +7,7 @@ import { addressDetailsContext } from "../contexts/AddressContext";
 
 import FoodTypes from "../screens/foodTypes";
 import SearchBar from "./searchBar";
-import ModalView from "./modal";
+import { LocationModalView } from "./modal";
 
 const Header = ({ setPopularRestaurants }) => {
   const navigation = useNavigation();
@@ -36,7 +36,7 @@ const Header = ({ setPopularRestaurants }) => {
       {address[0]?.address?.address1 != "Set Location" ||
       !address[0]?.address?.address1 ? (
         <>
-          <ModalView
+          <LocationModalView
             visible={visible}
             setVisible={setVisible}
             setPopularRestaurants={setPopularRestaurants}
