@@ -102,7 +102,7 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
                 onPress={() => showSearchResults(title)}
               >
                 <Image
-                  source={image}
+                  source={{ uri: image }}
                   style={tailwind("w-10 h-10 rounded-full mr-2")}
                   resizeMethod="cover"
                 />
