@@ -111,16 +111,7 @@ const Header = ({ setPopularRestaurants }) => {
                 <FoodTypes closeFoodTypes={() => showFoodTypeScreen(false)} />
               </View>
             ) : (
-              <View
-                style={[
-                  tailwind("flex flex-row justify-between"),
-                  {
-                    alignItems: "center",
-                    alignContent: "center",
-                    paddingBottom: 15,
-                  },
-                ]}
-              ></View>
+              <Text style={[tailwind("text-2xl font-bold")]}>Main Course</Text>
             )}
           </View>
         </>

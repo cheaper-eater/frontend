@@ -57,7 +57,6 @@ const Index = () => {
         </>
       ) : (
         <>
-          <Text style={[tailwind("text-2xl font-bold")]}>Main Course</Text>
           {popularRestaurants?.length != 0 ? (
             <FlatList
               data={popularRestaurants}
