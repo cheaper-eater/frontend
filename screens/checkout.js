@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { getBreakPoint } from "../utils/screen.js";
 import { getLocalStorage } from "../api/localStorage.js";
+import PageContainer from "../components/pageContainer.js";
 
 const Checkout = () => {
   const window = useWindowDimensions();
@@ -20,7 +21,10 @@ const Checkout = () => {
 
   useEffect(() => {
     (async () => {
-      setCart(await getLocalStorage("cart"));
+      const cart = await getLocalStorage("cart");
+      if (cart) {
+        setCart(cart);
+      }
     })();
   }, []);
 
@@ -67,28 +71,34 @@ const Checkout = () => {
   };
 
   return (
-    <View>
+    <PageContainer
+      style={tailwind(`${isLgOrSmaller() && !isMobile() ? "mt-[100px]" : ""}`)}
+    >
       <View
         style={tailwind(
           "flex flex-row justify-center items-center lg:hidden fixed top-0 z-10 w-full p-2 rounded-b-xl h-[100px] bg-white/90"
         )}
       >
-        {cart.map(({ service, total }) => (
-          <View
-            key={service}
-            style={tailwind("flex flex-1 items-center justify-between p-1")}
-          >
-            <Image
-              style={tailwind("w-1/2 h-10")}
-              source={getServiceLogo(service)}
-              resizeMode="contain"
-            />
+        {cart && cart.length ? (
+          cart.map(({ service, total }) => (
+            <View
+              key={service}
+              style={tailwind("flex flex-1 items-center justify-between p-1")}
+            >
+              <Image
+                style={tailwind("w-1/2 h-10")}
+                source={getServiceLogo(service)}
+                resizeMode="contain"
+              />
 
-            <Text style={tailwind("font-bold text-2xl")}>
-              ${(total / 100).toFixed(2)}
-            </Text>
-          </View>
-        ))}
+              <Text style={tailwind("font-bold text-2xl")}>
+                ${(total / 100).toFixed(2)}
+              </Text>
+            </View>
+          ))
+        ) : (
+          <></>
+        )}
       </View>
       <ScrollView>
         <View
@@ -97,7 +107,7 @@ const Checkout = () => {
               `flex flex-1 sm:flex-col lg:flex-row lg:justify-center lg:items-center ${
                 isLgOrSmaller() && isMobile() ? "pb-20" : ""
               }
-            ${isLgOrSmaller() && !isMobile() ? "mt-[100px]" : ""}`
+            `
             ),
             { gap: 15 },
           ]}
@@ -193,7 +203,7 @@ const Checkout = () => {
           ))}
         </View>
       </ScrollView>
-    </View>
+    </PageContainer>
   );
 };
 

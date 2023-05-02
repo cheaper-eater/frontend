@@ -1,11 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Image, Text, useWindowDimensions, View, FlatList } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, useWindowDimensions, View, FlatList } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import { faker } from "@faker-js/faker";
 import { pure } from "react-recompose";
 import PageContainer from "../components/pageContainer";
 import { getBreakPoint } from "../utils/screen";
-import { addressDetailsContext } from "../contexts/AddressContext";
 import { MenuCard } from "../components/cards";
 import { detailStore } from "../api/detail";
 import { CustomizationModal } from "../components/modal";
@@ -16,7 +14,6 @@ const MenuView = ({ route }) => {
   const tailwind = useTailwind();
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 5 };
   const window = useWindowDimensions();
-  const address = useContext(addressDetailsContext);
   const [menuData, setMenuData] = useState();
   const [pageData, setPageData] = useState(
     menuData === undefined ? undefined : [menuData.menu[0]]
@@ -53,35 +50,11 @@ const MenuView = ({ route }) => {
       ) : null}
       {menuData != undefined ? (
         <>
-          <>
-            <View style={tailwind("flex flex-row justify-between")}>
-              <View>
-                <Text style={tailwind("text-3xl font-bold")}>
-                  {menuData.name}
-                </Text>
-                <Text
-                  style={[
-                    tailwind("text-2xl font-medium"),
-                    { marginTop: "1.2%" },
-                  ]}
-                >
-                  Hello {faker.name.firstName()} 👋
-                </Text>
-              </View>
-            </View>
-            <View style={tailwind("my-3")}>
-              <View style={tailwind("flex flex-row items-center")}>
-                <Image
-                  style={tailwind("w-4 h-4")}
-                  resizeMode="contain"
-                  source={require("../assets/icons/black/location.png")}
-                />
-                <Text style={tailwind("font-light ml-2")}>
-                  {address[0].address.address1}
-                </Text>
-              </View>
-            </View>
-          </>
+          <View>
+            <Text style={tailwind("text-3xl font-extrabold")}>
+              {menuData.name}
+            </Text>
+          </View>
           <>
             {pageData != undefined ? (
               <FlatList

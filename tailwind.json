@@ -67,16 +67,16 @@
 			"marginRight": 8
 		}
 	},
-	"my-3": {
-		"style": {
-			"marginTop": 12,
-			"marginBottom": 12
-		}
-	},
 	"my-4": {
 		"style": {
 			"marginTop": 16,
 			"marginBottom": 16
+		}
+	},
+	"my-2": {
+		"style": {
+			"marginTop": 8,
+			"marginBottom": 8
 		}
 	},
 	"mx-4": {
@@ -126,16 +126,17 @@
 			"marginTop": 16
 		}
 	},
-	"mr-4": {
-		"style": {
-			"marginRight": 16
-		}
-	},
 	"ml-2": {
 		"style": {
 			"marginLeft": 8
 		}
 	},
+	"mr-4": {
+		"style": {
+			"marginRight": 16
+		}
+	},
+
 	"mt-2.5": {
 		"style": {
 			"marginTop": 10
@@ -149,6 +150,10 @@
 	"mt-3": {
 		"style": {
 			"marginTop": 12
+
+	"block": {
+		"style": {
+			"display": "block"
 		}
 	},
 	"flex": {
@@ -191,9 +196,9 @@
 			"height": 96
 		}
 	},
-	"h-9": {
+	"h-[200px]": {
 		"style": {
-			"height": 36
+			"height": 200
 		}
 	},
 	"h-4": {
@@ -206,16 +211,12 @@
 			"height": 20
 		}
 	},
-	"h-[200px]": {
+	"h-14": {
 		"style": {
-			"height": 200
+			"height": 56
 		}
 	},
-	"h-full": {
-		"style": {
-			"height": "100%"
-		}
-	},
+
 	"h-4/6": {
 		"style": {
 			"height": "66.666667%"
@@ -224,6 +225,15 @@
 	"max-h-9": {
 		"style": {
 			"maxHeight": 36
+      
+	"h-8": {
+		"style": {
+			"height": 32
+		}
+	},
+	"h-full": {
+		"style": {
+			"height": "100%"
 		}
 	},
 	"min-h-[320px]": {
@@ -261,9 +271,9 @@
 			"width": 96
 		}
 	},
-	"w-9": {
+	"w-10": {
 		"style": {
-			"width": 36
+			"width": 40
 		}
 	},
 	"w-4": {
@@ -276,9 +286,14 @@
 			"width": 20
 		}
 	},
-	"w-10": {
+	"w-36": {
 		"style": {
-			"width": 40
+			"width": 144
+		}
+	},
+	"w-8": {
+		"style": {
+			"width": 32
 		}
 	},
 	"w-11/12": {
@@ -480,6 +495,7 @@
 			"backgroundColor": "rgb(0 0 0 / 0.4)"
 		}
 	},
+
 	"bg-neutral-200": {
 		"style": {
 			"--tw-bg-opacity": 1,
@@ -492,6 +508,7 @@
 			"backgroundColor": "rgb(2 132 199 / var(--tw-bg-opacity))"
 		}
 	},
+  
 	"bg-none": {
 		"style": {
 			"backgroundImage": "none"
@@ -534,6 +551,7 @@
 			"paddingLeft": 10
 		}
 	},
+
 	"p-5": {
 		"style": {
 			"paddingTop": 20,
@@ -568,6 +586,7 @@
 			"paddingRight": 8
 		}
 	},
+
 	"px-px": {
 		"style": {
 			"paddingLeft": 1,
@@ -635,9 +654,9 @@
 			"fontWeight": "700"
 		}
 	},
-	"font-light": {
+	"font-extrabold": {
 		"style": {
-			"fontWeight": "300"
+			"fontWeight": "800"
 		}
 	},
 	"font-medium": {
@@ -645,9 +664,9 @@
 			"fontWeight": "500"
 		}
 	},
-	"font-extrabold": {
+	"font-light": {
 		"style": {
-			"fontWeight": "800"
+			"fontWeight": "300"
 		}
 	},
 	"text-green-500": {

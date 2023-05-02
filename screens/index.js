@@ -1,17 +1,12 @@
 import {
   Text,
   View,
-  Image,
   FlatList,
   useWindowDimensions,
-  TextInput,
-  TouchableOpacity,
-  Platform,
   ImageBackground,
 } from "react-native";
 import { useTailwind } from "tailwind-rn";
-import { faker } from "@faker-js/faker";
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import PageContainer from "../components/pageContainer";
 import { RestaurantCard } from "../components/cards";
@@ -27,43 +22,20 @@ const Index = () => {
   const tailwind = useTailwind();
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 4 };
   const window = useWindowDimensions();
-  const [visible, setVisible] = useState(false);
-  // const popularRestaurants = require("./test.json").data.slice(0, 20);
-  const [popularRestaurants, setPopularRestaurants] = useState([]);
 
-  const [foodTypeScreen, showFoodTypeScreen] = useState(false);
-  const foodTypesRef = useRef(null);
-  const searchBarRef = useRef(null);
+  const [popularRestaurants, setPopularRestaurants] = useState([]);
+  const [, setVisible] = useState(false);
+
   const address = useContext(addressDetailsContext);
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (
-  //       foodTypesRef.current &&
-  //       !foodTypesRef.current.contains(event.target) &&
-  //       !searchBarRef.current.isFocused()
-  //     ) {
-  //       showFoodTypeScreen(false);
-  //     }
-  //   };
-  //   document.addEventListener("click", handleClickOutside, true);
-  //   return () => {
-  //     document.removeEventListener("click", handleClickOutside, true);
-  //   };
-  // }, []);
 
   useEffect(() => {
     (async () => {
-      // if (
-      //   address[0]?.address?.address1 &&
-      //   address[0]?.address?.address1 !== "Set Location"
-      // ) {
       setPopularRestaurants(await popularPicks());
-      // }
     })();
   }, []);
 
   return (
-    <PageContainer>
+    <PageContainer setPopularRestaurants={setPopularRestaurants}>
       {/* Runs for the first time when the location hasn't been set by the cookies*/}
       {address[0]?.address?.address1 === "Set Location" ||
       !address[0]?.address?.address1 ? (
@@ -217,17 +189,17 @@ const Index = () => {
                           </View>
                         );
                       }}
-                      key={getBreakPoint(window.width)}
-                      numColumns={numColumns[getBreakPoint(window.width)]}
-                      keyExtractor={(item) => item.id}
                     />
-                  ) : (
-                    <></>
-                  )}
-                </>
-              </>
-            )}
-          </>
+                  </View>
+                );
+              }}
+              key={getBreakPoint(window.width)}
+              numColumns={numColumns[getBreakPoint(window.width)]}
+              keyExtractor={(item) => item.id}
+            />
+          ) : (
+            <></>
+          )}
         </>
       )}
     </PageContainer>

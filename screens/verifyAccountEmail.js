@@ -29,7 +29,7 @@ const VerifyAccountEmail = ({ route }) => {
           <Image
             style={tailwind("w-full h-[250px] mb-4")}
             resizeMode="contain"
-            source={require("../assets/logos/celogo.png")}
+            source={require("../assets/logos/logo.png")}
           />
         </View>
         <Text style={tailwind("text-black text-xl font-bold")}>
