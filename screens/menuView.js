@@ -27,7 +27,7 @@ const MenuView = ({ route }) => {
         })
       );
     })();
-  }, []);
+  }, [route.params]);
 
   useEffect(() => {
     if (menuData != undefined) {
