@@ -101,10 +101,12 @@ const Header = ({ setPopularRestaurants }) => {
               </TouchableOpacity>
             </View>
 
-            <SearchBar
-              isFoodTypesOpen={foodTypeScreen}
-              openFoodTypes={showFoodTypeScreen}
-            />
+            {route.name !== "Checkout" ? (
+              <SearchBar
+                isFoodTypesOpen={foodTypeScreen}
+                openFoodTypes={showFoodTypeScreen}
+              />
+            ) : null}
 
             {foodTypeScreen ? (
               <View ref={foodTypesRef}>
