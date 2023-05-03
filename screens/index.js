@@ -1,5 +1,4 @@
 import {
-  Text,
   View,
   FlatList,
   useWindowDimensions,
@@ -10,7 +9,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
 import PageContainer from "../components/pageContainer";
 import { RestaurantCard } from "../components/cards";
-import ModalView from "../components/modal";
+import { LocationModalView } from "../components/modal";
 import { getBreakPoint } from "../utils/screen";
 import { popularPicks } from "../api/get";
 import { addressDetailsContext } from "../contexts/AddressContext";
@@ -48,7 +47,7 @@ const Index = () => {
             ]}
             source={require("../assets/background/background.png")}
           >
-            <ModalView
+            <LocationModalView
               visible={true}
               setVisible={setVisible}
               setPopularRestaurants={setPopularRestaurants}
@@ -57,7 +56,6 @@ const Index = () => {
         </>
       ) : (
         <>
-          <Text style={[tailwind("text-2xl font-bold")]}>Main Course</Text>
           {popularRestaurants?.length != 0 ? (
             <FlatList
               data={popularRestaurants}
