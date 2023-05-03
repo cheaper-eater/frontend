@@ -18,7 +18,7 @@ const Login = () => {
     <PageContainer>
       <KeyboardAwareScrollView>
         <View style={tailwind("flex flex-1 sm:items-center")}>
-          <Toast ref={(ref) => Toast.setRef(ref)} />
+          <Toast />
           <View
             style={tailwind(
               "flex flex-1 justify-between sm:justify-center sm:w-1/2 md:w-1/3 xl:w-1/5"
@@ -34,14 +34,18 @@ const Login = () => {
               placeholder="Email"
               icon={require("../assets/icons/black/at.png")}
               keyboardType="email-address"
-              ref={email}
+              onChangeText={(e) => {
+                email.current = e;
+              }}
             />
             <IconInput
               style={tailwind("mb-4")}
               placeholder="Password"
               icon={require("../assets/icons/black/key.png")}
               secureTextEntry={true}
-              ref={password}
+              onChangeText={(e) => {
+                password.current = e;
+              }}
             />
             <View>
               <TouchableOpacity
@@ -62,8 +66,8 @@ const Login = () => {
                 onPress={async () => {
                   try {
                     const response = await login(
-                      email.current.value,
-                      password.current.value
+                      email.current,
+                      password.current
                     );
                     if (!response.ok) {
                       throw new Error(`Server Error: ${response.status}`);
@@ -72,8 +76,8 @@ const Login = () => {
                       type: "success",
                       text1: "Login successful!",
                     });
-                    email.current.clear();
-                    password.current.clear();
+                    email.current = "";
+                    password.current = "";
                   } catch (error) {
                     console.error("error:", error);
                     Toast.show({

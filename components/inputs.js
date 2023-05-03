@@ -2,17 +2,14 @@ import { View, TextInput, Image } from "react-native";
 import { useTailwind } from "tailwind-rn";
 import React from "react";
 
-const IconInput = React.forwardRef(function refFunction(
-  {
-    style,
-    icon,
-    placeholder,
-    keyboardType = "default",
-    secureTextEntry = false,
-    onChangeText = () => {},
-  },
-  ref
-) {
+const IconInput = ({
+  style,
+  icon,
+  placeholder,
+  keyboardType = "default",
+  secureTextEntry = false,
+  onChangeText = () => {},
+}) => {
   const tailwind = useTailwind();
   return (
     <View
@@ -33,10 +30,9 @@ const IconInput = React.forwardRef(function refFunction(
         keyboardType={keyboardType}
         secureTextEntry={secureTextEntry}
         onChangeText={(e) => onChangeText(e)}
-        ref={ref}
       />
     </View>
   );
-});
+};
 
 export { IconInput };
