@@ -22,8 +22,25 @@ const Checkout = () => {
   useEffect(() => {
     (async () => {
       const cart = await getLocalStorage("cart");
+      const salesTax = 0.1025;
+
       if (cart) {
-        setCart(cart);
+        setCart(
+          cart.map((service) => {
+            const total = service.items.reduce(
+              (acc, { price, quantity }) => acc + price * quantity,
+              0
+            );
+
+            const tax = total * salesTax;
+
+            return {
+              ...service,
+              tax: tax,
+              total: total + tax + service.deliveryFee,
+            };
+          })
+        );
       }
     })();
   }, []);
@@ -112,7 +129,7 @@ const Checkout = () => {
             { gap: 15 },
           ]}
         >
-          {cart.map(({ service, items, deliveryFee, tax, total }) => (
+          {cart.map(({ service, items, deliveryFee, tax, total, eta }) => (
             <View
               key={service}
               style={tailwind(
@@ -190,6 +207,13 @@ const Checkout = () => {
                   <Text>Tax</Text>
                   <Text>${(tax / 100).toFixed(2)}</Text>
                 </View>
+                <View
+                  style={tailwind("flex flex-row items-center justify-between")}
+                >
+                  <Text>ETA</Text>
+                  <Text>{eta}</Text>
+                </View>
+
                 <View
                   style={tailwind("flex flex-row items-center justify-between")}
                 >
