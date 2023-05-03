@@ -1,6 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { Text, useWindowDimensions, View, FlatList } from "react-native";
+import {
+  Text,
+  useWindowDimensions,
+  View,
+  FlatList,
+  Modal,
+  Alert,
+  StyleSheet,
+  Pressable,
+  Image,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useTailwind } from "tailwind-rn";
 import { pure } from "react-recompose";
 import PageContainer from "../components/pageContainer";
@@ -16,10 +27,12 @@ const MenuView = ({ route }) => {
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 5 };
   const window = useWindowDimensions();
   const [menuData, setMenuData] = useState();
+  const [modalVisible, setModalVisible] = useState(false);
   const [pageData, setPageData] = useState(
     menuData === undefined ? undefined : [menuData.menu[0]]
   );
   const [page, setPage] = useState(1);
+  const navigation = useNavigation();
 
   useEffect(() => {
     (async () => {
@@ -35,7 +48,7 @@ const MenuView = ({ route }) => {
   }, []);
 
   useEffect(() => {
-    if (menuData != undefined) {
+    if (menuData?.menu?.length) {
       setPageData([menuData.menu[0]]);
     }
   }, [menuData]);
@@ -99,7 +112,64 @@ const MenuView = ({ route }) => {
                 }}
               />
             ) : (
-              <></>
+              <View style={tailwind("flex flex-1 justify-center items-center")}>
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={true}
+                  onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                    setModalVisible(!modalVisible);
+                  }}
+                >
+                  <View
+                    style={tailwind("flex flex-1 justify-center items-center")}
+                  >
+                    <View
+                      style={[
+                        tailwind(
+                          "m-10 bg-white p-5 pt-10 rounded-2xl items-center"
+                        ),
+                        {
+                          shadowColor: "#000",
+                          shadowOffset: {
+                            width: 0,
+                            height: 2,
+                          },
+                          shadowOpacity: 0.25,
+                          shadowRadius: 4,
+                          elevation: 5,
+                        },
+                      ]}
+                    >
+                      <Image
+                        style={tailwind("w-14 h-14")}
+                        source={require("../assets/icons/gold/warning.png")}
+                      />
+                      <Text
+                        style={tailwind("mb-4 text-center text-xl font-bold")}
+                      >
+                        Menu not available at the moment
+                      </Text>
+                      <Pressable
+                        style={[
+                          tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
+                          { elevation: 2 },
+                        ]}
+                        onPress={() => {
+                          navigation.goBack();
+                        }}
+                      >
+                        <Text
+                          style={tailwind("text-white font-bold text-center")}
+                        >
+                          Explore other restaurants
+                        </Text>
+                      </Pressable>
+                    </View>
+                  </View>
+                </Modal>
+              </View>
             )}
           </>
         </>

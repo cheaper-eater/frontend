@@ -106,12 +106,14 @@ const Header = ({ setPopularRestaurants }) => {
               openFoodTypes={showFoodTypeScreen}
             />
 
-            {foodTypeScreen ? (
+            {foodTypeScreen && Platform.OS === "web" ? (
               <View ref={foodTypesRef}>
                 <FoodTypes closeFoodTypes={() => showFoodTypeScreen(false)} />
               </View>
-            ) : (
+            ) : route.name === "Home" ? (
               <Text style={[tailwind("text-2xl font-bold")]}>Main Course</Text>
+            ) : (
+              <></>
             )}
           </View>
         </>
