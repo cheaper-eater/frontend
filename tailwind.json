@@ -241,11 +241,6 @@
 			"height": "66.666667%"
 		}
 	},
-	"h-9": {
-		"style": {
-			"height": 36
-		}
-	},
 	"max-h-9": {
 		"style": {
 			"maxHeight": 36
@@ -319,11 +314,6 @@
 	"w-72": {
 		"style": {
 			"width": 288
-		}
-	},
-	"w-9": {
-		"style": {
-			"width": 36
 		}
 	},
 	"min-w-full": {

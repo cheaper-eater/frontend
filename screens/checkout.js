@@ -93,7 +93,7 @@ const Checkout = () => {
     >
       <View
         style={tailwind(
-          "flex flex-row justify-center items-center lg:hidden fixed top-0 z-10 w-full p-2 rounded-b-xl h-[100px] bg-white/90"
+          "flex flex-row justify-center items-center lg:hidden fixed top-0 z-10 w-full p-2 rounded-b-xl h-[100px] bg-white/90 mt-4"
         )}
       >
         {cart && cart.length ? (
