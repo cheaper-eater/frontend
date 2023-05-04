@@ -34,21 +34,27 @@ const SignUp = () => {
                 style={tailwind("mb-4")}
                 placeholder="name"
                 icon={require("../assets/icons/black/person.png")}
-                ref={name}
+                onChangeText={(e) => {
+                  name.current = e;
+                }}
               />
               <IconInput
                 style={tailwind("mb-4")}
                 placeholder="email"
                 icon={require("../assets/icons/black/at.png")}
                 keyboardType="email-address"
-                ref={email}
+                onChangeText={(e) => {
+                  email.current = e;
+                }}
               />
               <IconInput
                 style={tailwind("mb-4")}
                 placeholder="password"
                 icon={require("../assets/icons/black/key.png")}
                 secureTextEntry={true}
-                ref={password}
+                onChangeText={(e) => {
+                  password.current = e;
+                }}
               />
             </View>
             <View>
@@ -56,9 +62,9 @@ const SignUp = () => {
                 onPress={async () => {
                   try {
                     const res = await signUp(
-                      name.current.value,
-                      email.current.value,
-                      password.current.value
+                      name.current,
+                      email.current,
+                      password.current
                     );
                     const data = await res.json();
                     if (res.ok) {
@@ -68,9 +74,9 @@ const SignUp = () => {
                         text2:
                           "Please check your email to complete verification.",
                       });
-                      name.current.clear();
-                      email.current.clear();
-                      password.current.clear();
+                      name.current = "";
+                      email.current = "";
+                      password.current = "";
                     } else {
                       Toast.show({
                         type: "error",

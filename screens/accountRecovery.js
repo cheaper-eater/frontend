@@ -18,7 +18,7 @@ const AccountRecovery = () => {
     <PageContainer>
       <KeyboardAwareScrollView>
         <View style={tailwind("flex flex-1 sm:items-center")}>
-          <Toast ref={(ref) => Toast.setRef(ref)} />
+          <Toast />
           <View
             style={tailwind(
               "flex flex-1 justify-between sm:justify-center sm:w-1/2 md:w-1/3 xl:w-1/5"
@@ -35,7 +35,9 @@ const AccountRecovery = () => {
                 placeholder="Email"
                 icon={require("../assets/icons/black/at.png")}
                 keyboardType="email-address"
-                ref={email}
+                onChangeText={(e) => {
+                  email.current = e;
+                }}
               />
             </View>
             <View>
@@ -44,7 +46,7 @@ const AccountRecovery = () => {
                 title="Send a request"
                 onPress={async () => {
                   try {
-                    const response = await passwordReset(email.current.value);
+                    const response = await passwordReset(email.current);
                     if (!response.ok) {
                       throw new Error("Invalid email");
                     }
@@ -52,6 +54,7 @@ const AccountRecovery = () => {
                       type: "success",
                       text1: "Check your email!",
                     });
+                    email.current = "";
                   } catch (err) {
                     console.error("error:" + err);
                     Toast.show({

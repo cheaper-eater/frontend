@@ -47,7 +47,7 @@ const CreateNewPassword = ({ route }) => {
     <PageContainer>
       <KeyboardAwareScrollView>
         <View style={tailwind("flex flex-1 sm:items-center")}>
-          <Toast ref={(ref) => Toast.setRef(ref)} />
+          <Toast />
           <View
             style={tailwind(
               "flex flex-1 justify-between sm:justify-center sm:w-1/2 md:w-1/3 xl:w-1/5"
