@@ -111,6 +111,11 @@
 			"marginTop": 100
 		}
 	},
+	"mt-4": {
+		"style": {
+			"marginTop": 16
+		}
+	},
 	"mt-2": {
 		"style": {
 			"marginTop": 8
@@ -119,11 +124,6 @@
 	"mb-1": {
 		"style": {
 			"marginBottom": 4
-		}
-	},
-	"mt-4": {
-		"style": {
-			"marginTop": 16
 		}
 	},
 	"mt-2.5": {

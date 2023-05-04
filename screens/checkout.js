@@ -10,12 +10,13 @@ import {
   Platform,
 } from "react-native";
 import { getBreakPoint } from "../utils/screen.js";
-import { getLocalStorage } from "../api/localStorage.js";
+import { getLocalStorage, setLocalStorage } from "../api/localStorage.js";
 import PageContainer from "../components/pageContainer.js";
 
 const Checkout = () => {
   const window = useWindowDimensions();
   const tailwind = useTailwind();
+  const [cartItems, setCartItems] = useState([]);
 
   const [cart, setCart] = useState([]);
 
@@ -43,7 +44,7 @@ const Checkout = () => {
         );
       }
     })();
-  }, []);
+  }, [cartItems]);
 
   /* Images using the require function must be static,
    * at the time of creation (no string templates)
@@ -179,6 +180,15 @@ const Checkout = () => {
                           style={tailwind(
                             "font-bold text-lg bg-gray-100 p-4 rounded-full aspect-square justify-center items-center mb-1"
                           )}
+                          onPress={async () => {
+                            const menu = await getLocalStorage("cart");
+                            let serviceIndex = menu.findIndex((item) => {
+                              return item.service == service;
+                            });
+                            menu[serviceIndex].items[index].quantity += 1;
+                            await setLocalStorage("cart", menu);
+                            setCartItems(await getLocalStorage("cart"));
+                          }}
                         >
                           <Text style={tailwind("text-xl")}>+</Text>
                         </TouchableOpacity>
@@ -186,6 +196,15 @@ const Checkout = () => {
                           style={tailwind(
                             "font-bold text-lg bg-gray-100 p-4 rounded-full aspect-square justify-center items-center"
                           )}
+                          onPress={async () => {
+                            const menu = await getLocalStorage("cart");
+                            let serviceIndex = menu.findIndex((item) => {
+                              return item.service == service;
+                            });
+                            menu[serviceIndex].items[index].quantity -= 1;
+                            await setLocalStorage("cart", menu);
+                            setCartItems(await getLocalStorage("cart"));
+                          }}
                         >
                           <Text style={tailwind("text-xl")}>-</Text>
                         </TouchableOpacity>
