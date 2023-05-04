@@ -131,6 +131,7 @@ const ListView = ({ route }) => {
                       postmates: item.ids.postmates,
                       grubhub: item.ids.grubhub,
                       doordash: item.ids.doordash,
+                      isRetail: item.isRetail,
                     });
                   }}
                 />
