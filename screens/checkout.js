@@ -204,7 +204,9 @@ const Checkout = () => {
                             menu[serviceIndex].items[index].quantity -= 1;
                             if (menu[serviceIndex].items[index].quantity == 0) {
                               menu[serviceIndex].items.splice(index, 1);
-                              menu[serviceIndex].deliveryFee = 0;
+                              if (menu[serviceIndex].items.length == 0) {
+                                menu[serviceIndex].deliveryFee = 0;
+                              }
                             }
                             await setLocalStorage("cart", menu);
                             setCartItems(await getLocalStorage("cart"));
