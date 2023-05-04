@@ -105,10 +105,14 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
                 style={tailwind("flex flex-row items-center mb-2")}
                 onPress={async () => {
                   clearSearch();
-                  navigation.navigate(
-                    "Menu",
-                    (await search(title)).find((res) => res.title === title).ids
+
+                  const { ids, isRetail } = (await search(title)).find(
+                    (res) => res.title === title
                   );
+                  navigation.navigate("Menu", {
+                    ...ids,
+                    isRetail: isRetail,
+                  });
                 }}
               >
                 <Image
