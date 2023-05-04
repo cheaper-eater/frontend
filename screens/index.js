@@ -76,6 +76,7 @@ const Index = () => {
                           postmates: item.ids.postmates,
                           grubhub: item.ids.grubhub,
                           doordash: item.ids.doordash,
+                          isRetail: item.isRetail,
                         });
                       }}
                     />
