@@ -10,23 +10,41 @@ import {
   Platform,
 } from "react-native";
 import { getBreakPoint } from "../utils/screen.js";
-import { getLocalStorage } from "../api/localStorage.js";
+import { getLocalStorage, setLocalStorage } from "../api/localStorage.js";
 import PageContainer from "../components/pageContainer.js";
 
 const Checkout = () => {
   const window = useWindowDimensions();
   const tailwind = useTailwind();
+  const [cartItems, setCartItems] = useState([]);
 
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
     (async () => {
       const cart = await getLocalStorage("cart");
+      const salesTax = 0.1025;
+
       if (cart) {
-        setCart(cart);
+        setCart(
+          cart.map((service) => {
+            const total = service.items.reduce(
+              (acc, { price, quantity }) => acc + price * quantity,
+              0
+            );
+
+            const tax = total * salesTax;
+
+            return {
+              ...service,
+              tax: tax,
+              total: total + tax + service.deliveryFee,
+            };
+          })
+        );
       }
     })();
-  }, []);
+  }, [cartItems]);
 
   /* Images using the require function must be static,
    * at the time of creation (no string templates)
@@ -76,7 +94,7 @@ const Checkout = () => {
     >
       <View
         style={tailwind(
-          "flex flex-row justify-center items-center lg:hidden fixed top-0 z-10 w-full p-2 rounded-b-xl h-[100px] bg-white/90"
+          "flex flex-row justify-center items-center lg:hidden fixed top-0 z-10 w-full p-2 rounded-b-xl h-[100px] bg-white/90 mt-4"
         )}
       >
         {cart && cart.length ? (
@@ -112,7 +130,7 @@ const Checkout = () => {
             { gap: 15 },
           ]}
         >
-          {cart.map(({ service, items, deliveryFee, tax, total }) => (
+          {cart.map(({ service, items, deliveryFee, tax, total, eta }) => (
             <View
               key={service}
               style={tailwind(
@@ -162,6 +180,15 @@ const Checkout = () => {
                           style={tailwind(
                             "font-bold text-lg bg-gray-100 p-4 rounded-full aspect-square justify-center items-center mb-1"
                           )}
+                          onPress={async () => {
+                            const menu = await getLocalStorage("cart");
+                            let serviceIndex = menu.findIndex((item) => {
+                              return item.service == service;
+                            });
+                            menu[serviceIndex].items[index].quantity += 1;
+                            await setLocalStorage("cart", menu);
+                            setCartItems(await getLocalStorage("cart"));
+                          }}
                         >
                           <Text style={tailwind("text-xl")}>+</Text>
                         </TouchableOpacity>
@@ -169,6 +196,21 @@ const Checkout = () => {
                           style={tailwind(
                             "font-bold text-lg bg-gray-100 p-4 rounded-full aspect-square justify-center items-center"
                           )}
+                          onPress={async () => {
+                            const menu = await getLocalStorage("cart");
+                            let serviceIndex = menu.findIndex((item) => {
+                              return item.service == service;
+                            });
+                            menu[serviceIndex].items[index].quantity -= 1;
+                            if (menu[serviceIndex].items[index].quantity == 0) {
+                              menu[serviceIndex].items.splice(index, 1);
+                              if (menu[serviceIndex].items.length == 0) {
+                                menu[serviceIndex].deliveryFee = 0;
+                              }
+                            }
+                            await setLocalStorage("cart", menu);
+                            setCartItems(await getLocalStorage("cart"));
+                          }}
                         >
                           <Text style={tailwind("text-xl")}>-</Text>
                         </TouchableOpacity>
@@ -190,6 +232,13 @@ const Checkout = () => {
                   <Text>Tax</Text>
                   <Text>${(tax / 100).toFixed(2)}</Text>
                 </View>
+                <View
+                  style={tailwind("flex flex-row items-center justify-between")}
+                >
+                  <Text>ETA</Text>
+                  <Text>{eta}</Text>
+                </View>
+
                 <View
                   style={tailwind("flex flex-row items-center justify-between")}
                 >
