@@ -11,6 +11,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { useEffect, useRef, useState } from "react";
 import { autocompleteSearch } from "../api/autocomplete";
+import { search } from "../api/search";
 
 /**
  * Search bar component
@@ -33,15 +34,16 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
     })();
   }, [searchQuery]);
 
-  const showSearchResults = (query) => {
-    // autocomplete queries contain address information in parenthesis, this results in incorrect search
-    // results. To combat that, text with parenthesis is being removed.
-    query = query.replace(/ *\([^)]*\) */g, "");
-
+  const clearSearch = () => {
     openFoodTypes(false);
     setAutocompleteResults([]);
     searchInput.current.value = "";
+  };
 
+  const showSearchResults = (query) => {
+    // autocomplete queries contain address information in parenthesis, this results in incorrect search
+    // results. To combat that, text with parenthesis is being removed.
+    clearSearch();
     navigation.navigate("Search", {
       searchStr: query,
     });
@@ -101,7 +103,17 @@ const SearchBar = ({ isFoodTypesOpen, openFoodTypes }) => {
               <TouchableOpacity
                 key={uuid}
                 style={tailwind("flex flex-row items-center mb-2")}
-                onPress={() => showSearchResults(title)}
+                onPress={async () => {
+                  clearSearch();
+
+                  const { ids, isRetail } = (await search(title)).find(
+                    (res) => res.title === title
+                  );
+                  navigation.navigate("Menu", {
+                    ...ids,
+                    isRetail: isRetail,
+                  });
+                }}
               >
                 <Image
                   source={{ uri: image }}

@@ -48,7 +48,7 @@ const MenuView = ({ route }) => {
         // require("./menu.json")
       );
     })();
-  }, []);
+  }, [route.params]);
 
   useEffect(() => {
     if (menuData?.menu?.length) {
