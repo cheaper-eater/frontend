@@ -169,7 +169,7 @@ const MenuCard = ({
         >
           <Animated.View
             style={[
-              tailwind("bg-white rounded-xl min-h-[280px]"),
+              tailwind("bg-white rounded-xl min-h-[300px]"),
               style,
               { alignItems: "center", justifyContent: "center", padding: "1%" },
               { ...backStyle },
@@ -199,12 +199,23 @@ const MenuCard = ({
         <>
           <Animated.View
             style={[
-              tailwind("bg-white rounded-xl min-h-[280px]"),
+              tailwind("bg-white rounded-xl min-h-[300px]"),
               { justifyContent: "space-between" },
               style,
               { ...frontStyle },
             ]}
           >
+            <TouchableOpacity
+              onPress={() => (flipRotation ? backFlip() : frontFlip())}
+              style={tailwind(
+                "self-end	items-center text-white bg-black/40 z-10 m-1 p-2.5 rounded-xl absolute z-10"
+              )}
+            >
+              <Image
+                style={tailwind("w-5 h-5 rounded-md")}
+                source={require("../assets/icons/black/information.png")}
+              />
+            </TouchableOpacity>
             <View style={tailwind("flex flex-col absolute z-10")}>
               {!(price.postmates === undefined) ? (
                 <View
@@ -271,19 +282,16 @@ const MenuCard = ({
                 }
                 style={tailwind("object-cover w-full h-[200px] rounded-t-xl")}
               />
-            </TouchableOpacity>
-            <View style={tailwind("justify-between p-2")}>
-              <TouchableOpacity
-                onPress={() => (flipRotation ? backFlip() : frontFlip())}
-              >
+
+              <View style={tailwind("justify-between p-2")}>
                 <Text style={tailwind("text-lg font-bold")} numberOfLines={1}>
                   {title}
                 </Text>
                 <Text style={{ paddingTop: "1%" }} numberOfLines={2}>
                   {desc === "" ? "No description available" : desc}
                 </Text>
-              </TouchableOpacity>
-            </View>
+              </View>
+            </TouchableOpacity>
           </Animated.View>
         </>
       )}

@@ -261,11 +261,6 @@
 			"minHeight": 300
 		}
 	},
-	"min-h-[280px]": {
-		"style": {
-			"minHeight": 280
-		}
-	},
 	"w-full": {
 		"style": {
 			"width": "100%"
