@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import {
   Text,
@@ -6,8 +5,6 @@ import {
   View,
   FlatList,
   Modal,
-  Alert,
-  StyleSheet,
   Pressable,
   Image,
 } from "react-native";
@@ -121,7 +118,6 @@ const MenuView = ({ route }) => {
                   transparent={true}
                   visible={true}
                   onRequestClose={() => {
-                    Alert.alert("Modal has been closed.");
                     setModalVisible(!modalVisible);
                   }}
                 >
