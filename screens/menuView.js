@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from "react";
 import {
   Text,
@@ -14,12 +16,11 @@ import { pure } from "react-recompose";
 import PageContainer from "../components/pageContainer";
 import { getBreakPoint } from "../utils/screen";
 import { MenuCard } from "../components/cards";
-import { detailStore } from "../api/detail";
+import { detailItem, detailStore } from "../api/detail";
 import { CustomizationModal } from "../components/modal";
 
 const MenuView = ({ route }) => {
   const [visible, setVisible] = useState(false);
-  const [modalClickId, setModalClickId] = useState();
   const tailwind = useTailwind();
   const numColumns = { sm: 2, md: 3, lg: 4, xl: 5 };
   const window = useWindowDimensions();
@@ -29,6 +30,8 @@ const MenuView = ({ route }) => {
     menuData === undefined ? undefined : [menuData.menu[0]]
   );
   const [page, setPage] = useState(1);
+  const [itemClickedInfo, setItemClickedInfo] = useState();
+  const [customizationData, setCustomizationData] = useState();
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -53,13 +56,32 @@ const MenuView = ({ route }) => {
     }
   }, [menuData]);
 
+  useEffect(() => {
+    if (itemClickedInfo != undefined) {
+      (async() => {
+        if (itemClickedInfo?.sectionId && itemClickedInfo?.subsectionId && itemClickedInfo?.ids?.postmates){
+        setCustomizationData((await detailItem({
+          "postmates": {
+            storeID: route.params.postmates,
+            sectionID: itemClickedInfo.sectionId,
+            subsectionID: itemClickedInfo.subsectionId,
+            itemID: itemClickedInfo.ids.postmates,
+          }
+        }))["postmates"])}
+        else{
+          setCustomizationData("Customizations not available at the moment")
+        }
+      })();
+    }
+  }, [itemClickedInfo]);
+
   return (
     <PageContainer style={tailwind("m-2")}>
-      {modalClickId != undefined ? (
+      {itemClickedInfo != undefined && customizationData != undefined ? (
         <CustomizationModal
           modalVisible={visible}
           setModalVisible={setVisible}
-          data={require("./p_data2.json").data}
+          data={customizationData} //require("./p_data2.json").data
         />
       ) : null}
       {menuData != undefined ? (
@@ -91,8 +113,8 @@ const MenuView = ({ route }) => {
                           return (
                             <View style={[tailwind("flex flex-1 ")]}>
                               <MenuCard
-                                modalObjectSetter={setModalClickId}
-                                ids={item.ids}
+                                modalObjectSetter={setItemClickedInfo}
+                                item = {item}
                                 setModalVisible={setVisible}
                                 style={tailwind("m-2")}
                                 title={item.name}
@@ -118,7 +140,7 @@ const MenuView = ({ route }) => {
                   transparent={true}
                   visible={true}
                   onRequestClose={() => {
-                    setModalVisible(!modalVisible);
+                    setModalVisible(false);
                   }}
                 >
                   <View

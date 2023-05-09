@@ -249,9 +249,9 @@ const RecursivePopulation = ({ data }) => {
 };
 
 const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
+  console.log(typeof data);
   const tailwind = useTailwind();
   const [count, setCount] = useState(1);
-  const [required, setRequired] = useState([]);
 
   const handleItemAdd = async () => {
     const menu = await getLocalStorage("cart");
@@ -438,120 +438,161 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
         }}
       >
         <View style={tailwind("flex flex-1 justify-center items-center")}>
-          <View
-            style={[
-              tailwind("m-10 bg-white p-5 pt-10 rounded-xl items-center h-4/6"),
-              {
-                height: Platform.OS === "web" ? "75%" : "66.67%",
-                width: Platform.OS === "web" ? "60%" : "90%",
-                shadowColor: "black",
-                shadowOffset: {
-                  width: 0,
-                  height: 2,
-                },
-                shadowOpacity: 0.25,
-                shadowRadius: 4,
-                elevation: 5,
-              },
-            ]}
-          >
-            <Text style={tailwind("font-bold text-xl mb-2")}>{data.title}</Text>
-
-            <ScrollView
-              style={[
-                tailwind("my-3 rounded-lg"),
-                Platform.OS === "web" ? tailwind("w-11/12") : tailwind("w-72"),
-              ]}
-              indicatorStyle="black"
-              showsVerticalScrollIndicator={true}
-            >
-              {data.customizationsList.map((data, index) => {
-                return (
-                  <AccordionList
-                    title={data.title}
-                    key={index}
-                    required={
-                      data.maxPermitted == 1 && data.minPermitted == 1
-                        ? true
-                        : false
-                    }
-                    listBgColor={tailwind("bg-neutral-200")}
-                  >
-                    <RecursivePopulation
-                      data={data}
-                      key={index + 1}
-                      setRequired={setRequired}
-                      required={required}
-                    />
-                  </AccordionList>
-                );
-              })}
-            </ScrollView>
+          {typeof data != "string" ? (
             <View
               style={[
-                tailwind("flex min-w-full flex-row items-center max-h-9"),
+                tailwind(
+                  "m-10 bg-white p-5 pt-10 rounded-xl items-center h-4/6"
+                ),
                 {
-                  minWidth: Platform.OS === "web" ? "32%" : "85%",
-                  justifyContent: "space-between",
+                  height: Platform.OS === "web" ? "75%" : "66.67%",
+                  width: Platform.OS === "web" ? "60%" : "90%",
+                  shadowColor: "black",
+                  shadowOffset: {
+                    width: 0,
+                    height: 2,
+                  },
+                  shadowOpacity: 0.25,
+                  shadowRadius: 4,
+                  elevation: 5,
                 },
               ]}
             >
-              <Text style={tailwind("text-lg font-bold")}>Quantity: </Text>
-              <TouchableOpacity
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  borderRadius: 100,
-                  backgroundColor: "rgba(82, 250, 100, 0.2)",
-                }}
-                onPress={() => {
-                  count == 0 ? setCount(0) : setCount(count - 1);
-                }}
+              <Text style={tailwind("font-bold text-xl mb-2")}>
+                {data.title}
+              </Text>
+
+              <ScrollView
+                style={[
+                  tailwind("my-3 rounded-lg"),
+                  Platform.OS === "web"
+                    ? tailwind("w-11/12")
+                    : tailwind("w-72"),
+                ]}
+                indicatorStyle="black"
+                showsVerticalScrollIndicator={true}
               >
-                <Image
-                  style={tailwind("w-4 h-4")}
-                  resizeMode="contain"
-                  source={require("../assets/icons/black/minus.png")}
-                />
-              </TouchableOpacity>
-              <Text style={tailwind("text-2xl font-bold mx-3")}>{count}</Text>
-              <TouchableOpacity
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  borderRadius: 100,
-                  backgroundColor: "rgba(82, 250, 100, 0.2)",
-                }}
-                onPress={() => {
-                  setCount(count + 1);
-                }}
+                {data.customizationsList.map((data, index) => {
+                  return (
+                    <AccordionList
+                      title={data.title}
+                      key={index}
+                      // required={
+                      //   data.maxPermitted == 1 && data.minPermitted == 1
+                      //     ? true
+                      //     : false
+                      // }
+                      listBgColor={tailwind("bg-neutral-200")}
+                    >
+                      <RecursivePopulation data={data} key={index + 1} />
+                    </AccordionList>
+                  );
+                })}
+              </ScrollView>
+              <View
+                style={[
+                  tailwind("flex min-w-full flex-row items-center max-h-9"),
+                  {
+                    minWidth: Platform.OS === "web" ? "32%" : "85%",
+                    justifyContent: "space-between",
+                  },
+                ]}
               >
-                <Image
-                  style={tailwind("w-4 h-4")}
-                  resizeMode="contain"
-                  source={require("../assets/icons/black/plus.png")}
-                />
-              </TouchableOpacity>
+                <Text style={tailwind("text-lg font-bold")}>Quantity: </Text>
+                <TouchableOpacity
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 10,
+                    borderRadius: 100,
+                    backgroundColor: "rgba(82, 250, 100, 0.2)",
+                  }}
+                  onPress={() => {
+                    count == 0 ? setCount(0) : setCount(count - 1);
+                  }}
+                >
+                  <Image
+                    style={tailwind("w-4 h-4")}
+                    resizeMode="contain"
+                    source={require("../assets/icons/black/minus.png")}
+                  />
+                </TouchableOpacity>
+                <Text style={tailwind("text-2xl font-bold mx-3")}>{count}</Text>
+                <TouchableOpacity
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 10,
+                    borderRadius: 100,
+                    backgroundColor: "rgba(82, 250, 100, 0.2)",
+                  }}
+                  onPress={() => {
+                    setCount(count + 1);
+                  }}
+                >
+                  <Image
+                    style={tailwind("w-4 h-4")}
+                    resizeMode="contain"
+                    source={require("../assets/icons/black/plus.png")}
+                  />
+                </TouchableOpacity>
+              </View>
+              <View
+                style={[
+                  tailwind("flex flex-row justify-center"),
+                  { minWidth: "100%" },
+                ]}
+              >
+                <Pressable
+                  style={[
+                    tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
+                    { elevation: 2 },
+                  ]}
+                  onPress={() => handleItemAdd()}
+                >
+                  <Text style={tailwind("text-white font-bold text-center")}>
+                    Add to Cart!
+                  </Text>
+                </Pressable>
+                <Pressable
+                  style={[
+                    tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
+                    { elevation: 2 },
+                  ]}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={tailwind("text-white font-bold text-center")}>
+                    Back
+                  </Text>
+                </Pressable>
+              </View>
             </View>
+          ) : (
             <View
               style={[
-                tailwind("flex flex-row justify-center"),
-                { minWidth: "100%" },
+                tailwind("m-10 bg-white p-5 pt-10 rounded-2xl items-center"),
+                {
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 2,
+                  },
+                  shadowOpacity: 0.25,
+                  shadowRadius: 4,
+                  elevation: 5,
+                },
               ]}
             >
-              <Pressable
-                style={[
-                  tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
-                  { elevation: 2 },
-                ]}
-                onPress={() => handleItemAdd()}
-              >
-                <Text style={tailwind("text-white font-bold text-center")}>
-                  Add to Cart!
-                </Text>
-              </Pressable>
+              <Image
+                style={tailwind("w-14 h-14")}
+                source={require("../assets/icons/gold/warning.png")}
+              />
+              <Text style={tailwind("mb-4 text-center text-xl font-bold")}>
+                Customizations not available at the moment
+              </Text>
+              <Text style={tailwind("mb-4 text-center text-lg font-medium")}>
+                Default options will be considered for the transaction
+              </Text>
               <Pressable
                 style={[
                   tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
@@ -560,11 +601,11 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
                 onPress={() => setModalVisible(!modalVisible)}
               >
                 <Text style={tailwind("text-white font-bold text-center")}>
-                  Back
+                  Explore other items
                 </Text>
               </Pressable>
             </View>
-          </View>
+          )}
         </View>
       </Modal>
     </>

@@ -106,7 +106,7 @@ const RestaurantCard = ({ title, image, style, rating, onPress }) => {
 const MenuCard = ({
   title,
   image,
-  ids,
+  item,
   style,
   desc,
   price,
@@ -271,7 +271,12 @@ const MenuCard = ({
             </View>
             <TouchableOpacity
               onPress={() => {
-                setModalVisible(true), modalObjectSetter({ ids });
+                setModalVisible(true);
+                modalObjectSetter({
+                  ids: item.ids,
+                  sectionId: item.sectionId,
+                  subsectionId: item.subsectionId,
+                });
               }}
             >
               <Image
