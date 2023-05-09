@@ -28,18 +28,20 @@ const Checkout = () => {
       if (cart) {
         setCart(
           cart.map((service) => {
-            const total = service.items.reduce(
-              (acc, { price, quantity }) => acc + price * quantity,
-              0
-            );
+            if (service.items) {
+              const total = service.items.reduce(
+                (acc, { price, quantity }) => acc + price * quantity,
+                0
+              );
 
-            const tax = total * salesTax;
+              const tax = total * salesTax;
 
-            return {
-              ...service,
-              tax: tax,
-              total: total + tax + service.deliveryFee,
-            };
+              return {
+                ...service,
+                tax: tax,
+                total: total + tax + service.deliveryFee,
+              };
+            }
           })
         );
       }

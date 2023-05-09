@@ -58,22 +58,43 @@ const MenuView = ({ route }) => {
 
   useEffect(() => {
     if (itemClickedInfo != undefined) {
-      (async() => {
-        if (itemClickedInfo?.sectionId && itemClickedInfo?.subsectionId && itemClickedInfo?.ids?.postmates){
-        setCustomizationData((await detailItem({
-          "postmates": {
-            storeID: route.params.postmates,
-            sectionID: itemClickedInfo.sectionId,
-            subsectionID: itemClickedInfo.subsectionId,
-            itemID: itemClickedInfo.ids.postmates,
-          }
-        }))["postmates"])}
-        else{
-          setCustomizationData("Customizations not available at the moment")
+      (async () => {
+        console.log("clicked info");
+        console.log(itemClickedInfo);
+        if (
+          itemClickedInfo?.sectionId &&
+          itemClickedInfo?.subsectionId &&
+          itemClickedInfo?.ids?.postmates
+        ) {
+          setCustomizationData({
+            ...(itemClickedInfo.ids.postmates && {
+              postmates: (
+                await detailItem({
+                  postmates: {
+                    storeID: route.params.postmates,
+                    sectionID: itemClickedInfo.sectionId,
+                    subsectionID: itemClickedInfo.subsectionId,
+                    itemID: itemClickedInfo.ids.postmates,
+                  },
+                })
+              )["postmates"],
+            }),
+            ...(itemClickedInfo?.grubhub && {
+              grubhub: itemClickedInfo.grubhub,
+            }),
+            ...(itemClickedInfo?.doordash && {
+              doordash: itemClickedInfo.doordash,
+            }),
+          });
+        } else {
+          setCustomizationData("Customizations not available at the moment");
         }
       })();
     }
   }, [itemClickedInfo]);
+
+  console.log("cuz");
+  console.log(customizationData);
 
   return (
     <PageContainer style={tailwind("m-2")}>
@@ -114,7 +135,7 @@ const MenuView = ({ route }) => {
                             <View style={[tailwind("flex flex-1 ")]}>
                               <MenuCard
                                 modalObjectSetter={setItemClickedInfo}
-                                item = {item}
+                                item={item}
                                 setModalVisible={setVisible}
                                 style={tailwind("m-2")}
                                 title={item.name}

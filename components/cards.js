@@ -276,6 +276,22 @@ const MenuCard = ({
                   ids: item.ids,
                   sectionId: item.sectionId,
                   subsectionId: item.subsectionId,
+                  ...(item?.ids?.grubhub && {
+                    grubhub: {
+                      id: item.ids.grubhub,
+                      imageUrl: item.image,
+                      price: item.prices.grubhub,
+                      title: item.name,
+                    },
+                  }),
+                  ...(item?.ids?.doordash && {
+                    doordash: {
+                      id: item.ids.doordash,
+                      imageUrl: item.image,
+                      price: item.prices.doordash,
+                      title: item.name,
+                    },
+                  }),
                 });
               }}
             >

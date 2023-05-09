@@ -249,13 +249,14 @@ const RecursivePopulation = ({ data }) => {
 };
 
 const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
-  console.log(typeof data);
   const tailwind = useTailwind();
   const [count, setCount] = useState(1);
 
   const handleItemAdd = async () => {
     const menu = await getLocalStorage("cart");
+
     if (menu) {
+      // get index
       let postmatesIndex = menu.findIndex((item) => {
         return item.service == "postmates";
       });
@@ -265,153 +266,177 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
       let doordashIndex = menu.findIndex((item) => {
         return item.service == "doordash";
       });
-      if (data.uuid["postmates"]) {
-        let itemIndex = menu[postmatesIndex].items.findIndex((item) => {
-          return item.id == data.uuid["postmates"];
-        });
-        if (itemIndex != -1) {
-          menu[postmatesIndex].items[itemIndex].quantity += count;
-        } else {
-          menu[postmatesIndex].items = [
-            ...menu[postmatesIndex].items,
-            ...[
+
+      // add to cart
+      if (data.postmates) {
+        // if there is no postmates cart, add it
+        if (postmatesIndex == -1) {
+          menu.push({
+            service: "postmates",
+            items: [
               {
-                name: data.title,
-                image: data.imageUrl,
-                price: data.price,
+                name: data.postmates.title,
+                image: data.postmates.imageUrl,
+                price: data.postmates.price,
                 quantity: count,
-                id: data.uuid["postmates"],
+                id: data.postmates.uuid,
               },
             ],
-          ];
+            eta: "5 min",
+            deliveryFee: 700,
+          });
+          // if there is a postmates cart, update the item, or add the item
+        } else {
+          let itemIndex = menu[postmatesIndex].items.findIndex((item) => {
+            return item.id == data.postmates.uuid;
+          });
+
+          // update if it does exist
+          if (itemIndex != -1) {
+            menu[postmatesIndex].items[itemIndex].quantity += count;
+          } else {
+            menu[postmatesIndex].items = [
+              ...menu[postmatesIndex].items,
+              ...[
+                {
+                  name: data.postmates.title,
+                  image: data.postmates.imageUrl,
+                  price: data.postmates.price,
+                  quantity: count,
+                  id: data.postmates.uuid,
+                },
+              ],
+            ];
+          }
         }
-      } else {
-        menu.push({
-          service: "postmates",
-          items: [
-            {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
-              quantity: count,
-              id: data.uuid["postmates"],
-            },
-          ],
-        });
       }
-      if (data.uuid["grubhub"]) {
-        let itemIndex = menu[grubhubIndex].items.findIndex((item) => {
-          return item.id == data.uuid["grubhub"];
-        });
-        if (itemIndex != -1) {
-          menu[grubhubIndex].items[itemIndex].quantity += count;
-        } else {
-          menu[grubhubIndex].items = [
-            ...menu[grubhubIndex].items,
-            ...[
+      if (data.grubhub) {
+        if (grubhubIndex == -1) {
+          menu.push({
+            service: "grubhub",
+            items: [
               {
-                name: data.title,
-                image: data.imageUrl,
-                price: data.price,
+                name: data.grubhub.title,
+                image: data.grubhub.imageUrl,
+                price: data.grubhub.price,
                 quantity: count,
-                id: data.uuid["grubhub"],
+                id: data.grubhub.id,
               },
             ],
-          ];
+            eta: "5 min",
+            deliveryFee: 700,
+          });
+        } else {
+          let itemIndex = menu[grubhubIndex].items.findIndex((item) => {
+            return item.id == data.grubhub.id;
+          });
+          if (itemIndex != -1) {
+            menu[grubhubIndex].items[itemIndex].quantity += count;
+          } else {
+            menu[grubhubIndex].items = [
+              ...menu[grubhubIndex].items,
+              ...[
+                {
+                  name: data.grubhub.title,
+                  image: data.grubhub.imageUrl,
+                  price: data.grubhub.price,
+                  quantity: count,
+                  id: data.grubhub.id,
+                },
+              ],
+            ];
+          }
         }
-      } else {
-        menu.push({
-          service: "grubhub",
-          items: [
-            {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
-              quantity: count,
-              id: data.uuid["grubhub"],
-            },
-          ],
-        });
       }
-      if (data.uuid["doordash"]) {
-        let itemIndex = menu[doordashIndex].items.findIndex((item) => {
-          return item.id == data.uuid["doordash"];
-        });
-        if (itemIndex != -1) {
-          menu[doordashIndex].items[itemIndex].quantity += count;
-        } else {
-          menu[doordashIndex].items = [
-            ...menu[doordashIndex].items,
-            ...[
+      if (data.doordash) {
+        if (doordashIndex == -1) {
+          menu.push({
+            service: "doordash",
+            items: [
               {
-                name: data.title,
-                image: data.imageUrl,
-                price: data.price,
+                name: data.doordash.title,
+                image: data.doordash.imageUrl,
+                price: data.doordash.price,
                 quantity: count,
-                id: data.uuid["doordash"],
+                id: data.doordash.id,
               },
             ],
-          ];
+            eta: "5 min",
+            deliveryFee: 700,
+          });
+        } else {
+          let itemIndex = menu[doordashIndex].items.findIndex((item) => {
+            return item.id == data.doordash.id;
+          });
+          if (itemIndex != -1) {
+            menu[doordashIndex].items[itemIndex].quantity += count;
+          } else {
+            menu[doordashIndex].items = [
+              ...menu[doordashIndex].items,
+              ...[
+                {
+                  name: data.doordash.title,
+                  image: data.doordash.imageUrl,
+                  price: data.doordash.price,
+                  quantity: count,
+                  id: data.doordash.id,
+                },
+              ],
+            ];
+          }
         }
-      } else {
-        menu.push({
-          service: "doordash",
-          items: [
-            {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
-              quantity: count,
-              id: data.uuid["doordash"],
-            },
-          ],
-        });
       }
       await setLocalStorage("cart", menu);
     } else {
       let menu = [];
-      if (data.uuid["postmates"]) {
+      //if (data.postmates.uuid["postmates"]) {
+      if (data.postmates) {
         menu.push({
           service: "postmates",
           items: [
             {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
+              name: data.postmates.title,
+              image: data.postmates.imageUrl,
+              price: data.postmates.price,
               quantity: count,
-              id: data.uuid["postmates"],
+              //id: data.postmates.uuid["postmates"],
+              id: data.postmates.uuid,
             },
           ],
           eta: "5 min",
           deliveryFee: 700,
         });
       }
-      if (data.uuid["grubhub"]) {
+      //if (data.uuid["grubhub"]) {
+      if (data.grubhub) {
         menu.push({
           service: "grubhub",
           items: [
             {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
+              name: data.grubhub.title,
+              image: data.grubhub.imageUrl,
+              price: data.grubhub.price,
               quantity: count,
-              id: data.uuid["grubhub"],
+              //id: data.uuid["grubhub"],
+              id: data.grubhub.id,
             },
           ],
           eta: "5 min",
           deliveryFee: 700,
         });
       }
-      if (data.uuid["doordash"]) {
+      //if (data.uuid["doordash"]) {
+      if (data.doordash) {
         menu.push({
           service: "doordash",
           items: [
             {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
+              name: data.doordash.title,
+              image: data.doordash.imageUrl,
+              price: data.doordash.price,
               quantity: count,
-              id: data.uuid["doordash"],
+              //id: data.uuid["doordash"],
+              id: data.doordash.id,
             },
           ],
           eta: "5 min",
@@ -424,6 +449,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
       type: "success",
       text1: "Item added to cart",
     });
+    setModalVisible(false);
   };
 
   return (
@@ -459,7 +485,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
               ]}
             >
               <Text style={tailwind("font-bold text-xl mb-2")}>
-                {data.title}
+                {data.postmates.title}
               </Text>
 
               <ScrollView
@@ -472,7 +498,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
                 indicatorStyle="black"
                 showsVerticalScrollIndicator={true}
               >
-                {data.customizationsList.map((data, index) => {
+                {data.postmates.customizationsList.map((data, index) => {
                   return (
                     <AccordionList
                       title={data.title}
