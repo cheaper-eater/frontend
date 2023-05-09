@@ -59,8 +59,6 @@ const MenuView = ({ route }) => {
   useEffect(() => {
     if (itemClickedInfo != undefined) {
       (async () => {
-        console.log("clicked info");
-        console.log(itemClickedInfo);
         if (
           itemClickedInfo?.sectionId &&
           itemClickedInfo?.subsectionId &&
@@ -92,9 +90,6 @@ const MenuView = ({ route }) => {
       })();
     }
   }, [itemClickedInfo]);
-
-  console.log("cuz");
-  console.log(customizationData);
 
   return (
     <PageContainer style={tailwind("m-2")}>
