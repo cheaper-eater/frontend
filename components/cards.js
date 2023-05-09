@@ -228,7 +228,7 @@ const MenuCard = ({
                     source={require("../assets/logos/services/postmates.png")}
                   />
                   <Text style={tailwind("text-white ml-2 font-bold")}>
-                    $ {price.postmates / 100}
+                    ${price.postmates / 100}
                   </Text>
                 </View>
               ) : (
@@ -245,7 +245,7 @@ const MenuCard = ({
                     source={require("../assets/logos/services/grubhub.png")}
                   />
                   <Text style={tailwind("text-white ml-2 font-bold")}>
-                    $ {price.grubhub / 100}
+                    ${price.grubhub / 100}
                   </Text>
                 </View>
               ) : (
@@ -262,7 +262,7 @@ const MenuCard = ({
                     source={require("../assets/logos/services/doordash.png")}
                   />
                   <Text style={tailwind("text-white ml-2 font-bold")}>
-                    $ {price.doordash / 100}
+                    ${price.doordash / 100}
                   </Text>
                 </View>
               ) : (
