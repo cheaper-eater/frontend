@@ -254,6 +254,11 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
 
   const handleItemAdd = async () => {
     const menu = await getLocalStorage("cart");
+    const defaults = {
+      postmates: { eta: "5 min", deliveryFee: 700 },
+      doordash: { eta: "6 min", deliveryFee: 900 },
+      grubhub: { eta: "8 min", deliveryFee: 900 },
+    };
 
     if (menu) {
       // get index
@@ -282,8 +287,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
                 id: data.postmates.uuid,
               },
             ],
-            eta: "5 min",
-            deliveryFee: 700,
+            ...defaults.postmates,
           });
           // if there is a postmates cart, update the item, or add the item
         } else {
@@ -323,8 +327,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
                 id: data.grubhub.id,
               },
             ],
-            eta: "5 min",
-            deliveryFee: 700,
+            ...defaults.grubhub,
           });
         } else {
           let itemIndex = menu[grubhubIndex].items.findIndex((item) => {
@@ -361,8 +364,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
                 id: data.doordash.id,
               },
             ],
-            eta: "5 min",
-            deliveryFee: 700,
+            ...defaults.doordash,
           });
         } else {
           let itemIndex = menu[doordashIndex].items.findIndex((item) => {
@@ -403,8 +405,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
               id: data.postmates.uuid,
             },
           ],
-          eta: "5 min",
-          deliveryFee: 700,
+          ...defaults.postmates,
         });
       }
       //if (data.uuid["grubhub"]) {
@@ -421,8 +422,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
               id: data.grubhub.id,
             },
           ],
-          eta: "5 min",
-          deliveryFee: 700,
+          ...defaults.grubhub,
         });
       }
       //if (data.uuid["doordash"]) {
@@ -439,8 +439,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
               id: data.doordash.id,
             },
           ],
-          eta: "5 min",
-          deliveryFee: 700,
+          ...defaults.doordash,
         });
       }
       await setLocalStorage("cart", menu);
