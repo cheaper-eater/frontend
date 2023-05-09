@@ -43,7 +43,7 @@ const MenuView = ({ route }) => {
             grubhub: route.params.grubhub,
             doordash: route.params.doordash,
           },
-          route.params.isRetail
+          route.params.isRetail == "true" ? true : false
         )
         // require("./menu.json")
       );
