@@ -31,4 +31,14 @@ const detailStore = async (ids, isRetail) => {
   ).json();
 };
 
-export { detailLocation, detailStore };
+const detailItem = async (storeItemDetail) => {
+  return await (
+    await fetch(`http://${API_DOMAIN}:${API_PORT}/api/detail/item`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(storeItemDetail),
+    })
+  ).json();
+};
+
+export { detailLocation, detailStore, detailItem };

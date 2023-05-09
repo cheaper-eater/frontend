@@ -106,7 +106,7 @@ const RestaurantCard = ({ title, image, style, rating, onPress }) => {
 const MenuCard = ({
   title,
   image,
-  ids,
+  item,
   style,
   desc,
   price,
@@ -228,7 +228,7 @@ const MenuCard = ({
                     source={require("../assets/logos/services/postmates.png")}
                   />
                   <Text style={tailwind("text-white ml-2 font-bold")}>
-                    $ {price.postmates / 100}
+                    ${price.postmates / 100}
                   </Text>
                 </View>
               ) : (
@@ -245,7 +245,7 @@ const MenuCard = ({
                     source={require("../assets/logos/services/grubhub.png")}
                   />
                   <Text style={tailwind("text-white ml-2 font-bold")}>
-                    $ {price.grubhub / 100}
+                    ${price.grubhub / 100}
                   </Text>
                 </View>
               ) : (
@@ -262,7 +262,7 @@ const MenuCard = ({
                     source={require("../assets/logos/services/doordash.png")}
                   />
                   <Text style={tailwind("text-white ml-2 font-bold")}>
-                    $ {price.doordash / 100}
+                    ${price.doordash / 100}
                   </Text>
                 </View>
               ) : (
@@ -271,7 +271,28 @@ const MenuCard = ({
             </View>
             <TouchableOpacity
               onPress={() => {
-                setModalVisible(true), modalObjectSetter({ ids });
+                setModalVisible(true);
+                modalObjectSetter({
+                  ids: item.ids,
+                  sectionId: item.sectionId,
+                  subsectionId: item.subsectionId,
+                  ...(item?.ids?.grubhub && {
+                    grubhub: {
+                      id: item.ids.grubhub,
+                      imageUrl: item.image,
+                      price: item.prices.grubhub,
+                      title: item.name,
+                    },
+                  }),
+                  ...(item?.ids?.doordash && {
+                    doordash: {
+                      id: item.ids.doordash,
+                      imageUrl: item.image,
+                      price: item.prices.doordash,
+                      title: item.name,
+                    },
+                  }),
+                });
               }}
             >
               <Image

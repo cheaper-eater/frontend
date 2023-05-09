@@ -251,11 +251,17 @@ const RecursivePopulation = ({ data }) => {
 const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
   const tailwind = useTailwind();
   const [count, setCount] = useState(1);
-  const [required, setRequired] = useState([]);
 
   const handleItemAdd = async () => {
     const menu = await getLocalStorage("cart");
+    const defaults = {
+      postmates: { eta: "5 min", deliveryFee: 700 },
+      doordash: { eta: "6 min", deliveryFee: 900 },
+      grubhub: { eta: "8 min", deliveryFee: 900 },
+    };
+
     if (menu) {
+      // get index
       let postmatesIndex = menu.findIndex((item) => {
         return item.service == "postmates";
       });
@@ -265,157 +271,175 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
       let doordashIndex = menu.findIndex((item) => {
         return item.service == "doordash";
       });
-      if (data.uuid["postmates"]) {
-        let itemIndex = menu[postmatesIndex].items.findIndex((item) => {
-          return item.id == data.uuid["postmates"];
-        });
-        if (itemIndex != -1) {
-          menu[postmatesIndex].items[itemIndex].quantity += count;
-        } else {
-          menu[postmatesIndex].items = [
-            ...menu[postmatesIndex].items,
-            ...[
+
+      // add to cart
+      if (data.postmates) {
+        // if there is no postmates cart, add it
+        if (postmatesIndex == -1) {
+          menu.push({
+            service: "postmates",
+            items: [
               {
-                name: data.title,
-                image: data.imageUrl,
-                price: data.price,
+                name: data.postmates.title,
+                image: data.postmates.imageUrl,
+                price: data.postmates.price,
                 quantity: count,
-                id: data.uuid["postmates"],
+                id: data.postmates.uuid,
               },
             ],
-          ];
+            ...defaults.postmates,
+          });
+          // if there is a postmates cart, update the item, or add the item
+        } else {
+          let itemIndex = menu[postmatesIndex].items.findIndex((item) => {
+            return item.id == data.postmates.uuid;
+          });
+
+          // update if it does exist
+          if (itemIndex != -1) {
+            menu[postmatesIndex].items[itemIndex].quantity += count;
+          } else {
+            menu[postmatesIndex].items = [
+              ...menu[postmatesIndex].items,
+              ...[
+                {
+                  name: data.postmates.title,
+                  image: data.postmates.imageUrl,
+                  price: data.postmates.price,
+                  quantity: count,
+                  id: data.postmates.uuid,
+                },
+              ],
+            ];
+          }
         }
-      } else {
-        menu.push({
-          service: "postmates",
-          items: [
-            {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
-              quantity: count,
-              id: data.uuid["postmates"],
-            },
-          ],
-        });
       }
-      if (data.uuid["grubhub"]) {
-        let itemIndex = menu[grubhubIndex].items.findIndex((item) => {
-          return item.id == data.uuid["grubhub"];
-        });
-        if (itemIndex != -1) {
-          menu[grubhubIndex].items[itemIndex].quantity += count;
-        } else {
-          menu[grubhubIndex].items = [
-            ...menu[grubhubIndex].items,
-            ...[
+      if (data.grubhub) {
+        if (grubhubIndex == -1) {
+          menu.push({
+            service: "grubhub",
+            items: [
               {
-                name: data.title,
-                image: data.imageUrl,
-                price: data.price,
+                name: data.grubhub.title,
+                image: data.grubhub.imageUrl,
+                price: data.grubhub.price,
                 quantity: count,
-                id: data.uuid["grubhub"],
+                id: data.grubhub.id,
               },
             ],
-          ];
+            ...defaults.grubhub,
+          });
+        } else {
+          let itemIndex = menu[grubhubIndex].items.findIndex((item) => {
+            return item.id == data.grubhub.id;
+          });
+          if (itemIndex != -1) {
+            menu[grubhubIndex].items[itemIndex].quantity += count;
+          } else {
+            menu[grubhubIndex].items = [
+              ...menu[grubhubIndex].items,
+              ...[
+                {
+                  name: data.grubhub.title,
+                  image: data.grubhub.imageUrl,
+                  price: data.grubhub.price,
+                  quantity: count,
+                  id: data.grubhub.id,
+                },
+              ],
+            ];
+          }
         }
-      } else {
-        menu.push({
-          service: "grubhub",
-          items: [
-            {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
-              quantity: count,
-              id: data.uuid["grubhub"],
-            },
-          ],
-        });
       }
-      if (data.uuid["doordash"]) {
-        let itemIndex = menu[doordashIndex].items.findIndex((item) => {
-          return item.id == data.uuid["doordash"];
-        });
-        if (itemIndex != -1) {
-          menu[doordashIndex].items[itemIndex].quantity += count;
-        } else {
-          menu[doordashIndex].items = [
-            ...menu[doordashIndex].items,
-            ...[
+      if (data.doordash) {
+        if (doordashIndex == -1) {
+          menu.push({
+            service: "doordash",
+            items: [
               {
-                name: data.title,
-                image: data.imageUrl,
-                price: data.price,
+                name: data.doordash.title,
+                image: data.doordash.imageUrl,
+                price: data.doordash.price,
                 quantity: count,
-                id: data.uuid["doordash"],
+                id: data.doordash.id,
               },
             ],
-          ];
+            ...defaults.doordash,
+          });
+        } else {
+          let itemIndex = menu[doordashIndex].items.findIndex((item) => {
+            return item.id == data.doordash.id;
+          });
+          if (itemIndex != -1) {
+            menu[doordashIndex].items[itemIndex].quantity += count;
+          } else {
+            menu[doordashIndex].items = [
+              ...menu[doordashIndex].items,
+              ...[
+                {
+                  name: data.doordash.title,
+                  image: data.doordash.imageUrl,
+                  price: data.doordash.price,
+                  quantity: count,
+                  id: data.doordash.id,
+                },
+              ],
+            ];
+          }
         }
-      } else {
-        menu.push({
-          service: "doordash",
-          items: [
-            {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
-              quantity: count,
-              id: data.uuid["doordash"],
-            },
-          ],
-        });
       }
       await setLocalStorage("cart", menu);
     } else {
       let menu = [];
-      if (data.uuid["postmates"]) {
+      //if (data.postmates.uuid["postmates"]) {
+      if (data.postmates) {
         menu.push({
           service: "postmates",
           items: [
             {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
+              name: data.postmates.title,
+              image: data.postmates.imageUrl,
+              price: data.postmates.price,
               quantity: count,
-              id: data.uuid["postmates"],
+              //id: data.postmates.uuid["postmates"],
+              id: data.postmates.uuid,
             },
           ],
-          eta: "5 min",
-          deliveryFee: 700,
+          ...defaults.postmates,
         });
       }
-      if (data.uuid["grubhub"]) {
+      //if (data.uuid["grubhub"]) {
+      if (data.grubhub) {
         menu.push({
           service: "grubhub",
           items: [
             {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
+              name: data.grubhub.title,
+              image: data.grubhub.imageUrl,
+              price: data.grubhub.price,
               quantity: count,
-              id: data.uuid["grubhub"],
+              //id: data.uuid["grubhub"],
+              id: data.grubhub.id,
             },
           ],
-          eta: "5 min",
-          deliveryFee: 700,
+          ...defaults.grubhub,
         });
       }
-      if (data.uuid["doordash"]) {
+      //if (data.uuid["doordash"]) {
+      if (data.doordash) {
         menu.push({
           service: "doordash",
           items: [
             {
-              name: data.title,
-              image: data.imageUrl,
-              price: data.price,
+              name: data.doordash.title,
+              image: data.doordash.imageUrl,
+              price: data.doordash.price,
               quantity: count,
-              id: data.uuid["doordash"],
+              //id: data.uuid["doordash"],
+              id: data.doordash.id,
             },
           ],
-          eta: "5 min",
-          deliveryFee: 700,
+          ...defaults.doordash,
         });
       }
       await setLocalStorage("cart", menu);
@@ -424,6 +448,7 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
       type: "success",
       text1: "Item added to cart",
     });
+    setModalVisible(false);
   };
 
   return (
@@ -438,120 +463,161 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
         }}
       >
         <View style={tailwind("flex flex-1 justify-center items-center")}>
-          <View
-            style={[
-              tailwind("m-10 bg-white p-5 pt-10 rounded-xl items-center h-4/6"),
-              {
-                height: Platform.OS === "web" ? "75%" : "66.67%",
-                width: Platform.OS === "web" ? "60%" : "90%",
-                shadowColor: "black",
-                shadowOffset: {
-                  width: 0,
-                  height: 2,
-                },
-                shadowOpacity: 0.25,
-                shadowRadius: 4,
-                elevation: 5,
-              },
-            ]}
-          >
-            <Text style={tailwind("font-bold text-xl mb-2")}>{data.title}</Text>
-
-            <ScrollView
-              style={[
-                tailwind("my-3 rounded-lg"),
-                Platform.OS === "web" ? tailwind("w-11/12") : tailwind("w-72"),
-              ]}
-              indicatorStyle="black"
-              showsVerticalScrollIndicator={true}
-            >
-              {data.customizationsList.map((data, index) => {
-                return (
-                  <AccordionList
-                    title={data.title}
-                    key={index}
-                    required={
-                      data.maxPermitted == 1 && data.minPermitted == 1
-                        ? true
-                        : false
-                    }
-                    listBgColor={tailwind("bg-neutral-200")}
-                  >
-                    <RecursivePopulation
-                      data={data}
-                      key={index + 1}
-                      setRequired={setRequired}
-                      required={required}
-                    />
-                  </AccordionList>
-                );
-              })}
-            </ScrollView>
+          {typeof data != "string" ? (
             <View
               style={[
-                tailwind("flex min-w-full flex-row items-center max-h-9"),
+                tailwind(
+                  "m-10 bg-white p-5 pt-10 rounded-xl items-center h-4/6"
+                ),
                 {
-                  minWidth: Platform.OS === "web" ? "32%" : "85%",
-                  justifyContent: "space-between",
+                  height: Platform.OS === "web" ? "75%" : "66.67%",
+                  width: Platform.OS === "web" ? "60%" : "90%",
+                  shadowColor: "black",
+                  shadowOffset: {
+                    width: 0,
+                    height: 2,
+                  },
+                  shadowOpacity: 0.25,
+                  shadowRadius: 4,
+                  elevation: 5,
                 },
               ]}
             >
-              <Text style={tailwind("text-lg font-bold")}>Quantity: </Text>
-              <TouchableOpacity
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  borderRadius: 100,
-                  backgroundColor: "rgba(82, 250, 100, 0.2)",
-                }}
-                onPress={() => {
-                  count == 0 ? setCount(0) : setCount(count - 1);
-                }}
+              <Text style={tailwind("font-bold text-xl mb-2")}>
+                {data.postmates.title}
+              </Text>
+
+              <ScrollView
+                style={[
+                  tailwind("my-3 rounded-lg"),
+                  Platform.OS === "web"
+                    ? tailwind("w-11/12")
+                    : tailwind("w-72"),
+                ]}
+                indicatorStyle="black"
+                showsVerticalScrollIndicator={true}
               >
-                <Image
-                  style={tailwind("w-4 h-4")}
-                  resizeMode="contain"
-                  source={require("../assets/icons/black/minus.png")}
-                />
-              </TouchableOpacity>
-              <Text style={tailwind("text-2xl font-bold mx-3")}>{count}</Text>
-              <TouchableOpacity
-                style={{
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: 10,
-                  borderRadius: 100,
-                  backgroundColor: "rgba(82, 250, 100, 0.2)",
-                }}
-                onPress={() => {
-                  setCount(count + 1);
-                }}
+                {data.postmates.customizationsList.map((data, index) => {
+                  return (
+                    <AccordionList
+                      title={data.title}
+                      key={index}
+                      // required={
+                      //   data.maxPermitted == 1 && data.minPermitted == 1
+                      //     ? true
+                      //     : false
+                      // }
+                      listBgColor={tailwind("bg-neutral-200")}
+                    >
+                      <RecursivePopulation data={data} key={index + 1} />
+                    </AccordionList>
+                  );
+                })}
+              </ScrollView>
+              <View
+                style={[
+                  tailwind("flex min-w-full flex-row items-center max-h-9"),
+                  {
+                    minWidth: Platform.OS === "web" ? "32%" : "85%",
+                    justifyContent: "space-between",
+                  },
+                ]}
               >
-                <Image
-                  style={tailwind("w-4 h-4")}
-                  resizeMode="contain"
-                  source={require("../assets/icons/black/plus.png")}
-                />
-              </TouchableOpacity>
+                <Text style={tailwind("text-lg font-bold")}>Quantity: </Text>
+                <TouchableOpacity
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 10,
+                    borderRadius: 100,
+                    backgroundColor: "rgba(82, 250, 100, 0.2)",
+                  }}
+                  onPress={() => {
+                    count == 0 ? setCount(0) : setCount(count - 1);
+                  }}
+                >
+                  <Image
+                    style={tailwind("w-4 h-4")}
+                    resizeMode="contain"
+                    source={require("../assets/icons/black/minus.png")}
+                  />
+                </TouchableOpacity>
+                <Text style={tailwind("text-2xl font-bold mx-3")}>{count}</Text>
+                <TouchableOpacity
+                  style={{
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 10,
+                    borderRadius: 100,
+                    backgroundColor: "rgba(82, 250, 100, 0.2)",
+                  }}
+                  onPress={() => {
+                    setCount(count + 1);
+                  }}
+                >
+                  <Image
+                    style={tailwind("w-4 h-4")}
+                    resizeMode="contain"
+                    source={require("../assets/icons/black/plus.png")}
+                  />
+                </TouchableOpacity>
+              </View>
+              <View
+                style={[
+                  tailwind("flex flex-row justify-center"),
+                  { minWidth: "100%" },
+                ]}
+              >
+                <Pressable
+                  style={[
+                    tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
+                    { elevation: 2 },
+                  ]}
+                  onPress={() => handleItemAdd()}
+                >
+                  <Text style={tailwind("text-white font-bold text-center")}>
+                    Add to Cart!
+                  </Text>
+                </Pressable>
+                <Pressable
+                  style={[
+                    tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
+                    { elevation: 2 },
+                  ]}
+                  onPress={() => setModalVisible(!modalVisible)}
+                >
+                  <Text style={tailwind("text-white font-bold text-center")}>
+                    Back
+                  </Text>
+                </Pressable>
+              </View>
             </View>
+          ) : (
             <View
               style={[
-                tailwind("flex flex-row justify-center"),
-                { minWidth: "100%" },
+                tailwind("m-10 bg-white p-5 pt-10 rounded-2xl items-center"),
+                {
+                  shadowColor: "#000",
+                  shadowOffset: {
+                    width: 0,
+                    height: 2,
+                  },
+                  shadowOpacity: 0.25,
+                  shadowRadius: 4,
+                  elevation: 5,
+                },
               ]}
             >
-              <Pressable
-                style={[
-                  tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
-                  { elevation: 2 },
-                ]}
-                onPress={() => handleItemAdd()}
-              >
-                <Text style={tailwind("text-white font-bold text-center")}>
-                  Add to Cart!
-                </Text>
-              </Pressable>
+              <Image
+                style={tailwind("w-14 h-14")}
+                source={require("../assets/icons/gold/warning.png")}
+              />
+              <Text style={tailwind("mb-4 text-center text-xl font-bold")}>
+                Customizations not available at the moment
+              </Text>
+              <Text style={tailwind("mb-4 text-center text-lg font-medium")}>
+                Default options will be considered for the transaction
+              </Text>
               <Pressable
                 style={[
                   tailwind("rounded-3xl p-3 bg-sky-600 m-2"),
@@ -560,11 +626,11 @@ const CustomizationModal = ({ modalVisible, setModalVisible, data }) => {
                 onPress={() => setModalVisible(!modalVisible)}
               >
                 <Text style={tailwind("text-white font-bold text-center")}>
-                  Back
+                  Explore other items
                 </Text>
               </Pressable>
             </View>
-          </View>
+          )}
         </View>
       </Modal>
     </>
